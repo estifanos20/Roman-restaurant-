@@ -3,427 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>ROMAN Restaurant</title>
 
 <style>
-   <section id="reservation">
-<h2 class="title">🪑 ጠረጴዛ ማስያዣ</h2>
-
-<div style="max-width:500px;margin:auto;background:white;padding:20px;border-radius:12px">
-
-<input id="rname" placeholder="ስም / Name">
-<input id="rphone" placeholder="ስልክ / Phone">
-
-<input id="rdate" type="date">
-
-<input id="rtime" type="time">
-
-<input id="rpeople" type="number" min="1" placeholder="የሰዎች ብዛት">
-
-<button onclick="reserve()">🪑 ጠረጴዛ ያስይዙ</button>
-
-</div>
-</section>
-
-<section>
-<h2 class="title">📍 እኛን ይጎብኙ</h2>
-
-<iframe
-src="https://www.google.com/maps?q=Ethiopia&output=embed"
-width="100%"
-height="300"
-style="border:0;border-radius:12px">
-</iframe>
-</section>
-
-<script>
-function reserve(){
-
-let name=document.getElementById("rname").value;
-let phone=document.getElementById("rphone").value;
-let date=document.getElementById("rdate").value;
-let time=document.getElementById("rtime").value;
-let people=document.getElementById("rpeople").value;
-
-if(!name || !phone || !date || !time || !people){
-alert("እባክዎ ሁሉንም ይሙሉ");
-return;
-}
-
-let msg=
-"ROMAN TABLE RESERVATION%0A%0A"+
-"Name: "+name+"%0A"+
-"Phone: "+phone+"%0A"+
-"Date: "+date+"%0A"+
-"Time: "+time+"%0A"+
-"People: "+people;
-
-window.open(
-"https://wa.me/251900000000?text="+msg,
-"_blank"
-);
-
-}
-</script> 
+*{box-sizing:border-box}
 body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#f7efe3;
-    color:#3b2418;
+margin:0;
+font-family:Arial,"Noto Sans Ethiopic",sans-serif;
+background:#f7efe3;
+color:#3b2418;
 }
-
 header{
-    background:#4b2e1e;
-    color:white;
-    padding:18px;
-    text-align:center;
+background:#4b2e1e;
+color:white;
+padding:15px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:1000;
 }
-
-header h1{
-    margin:0 0 12px;
-    font-size:32px;
-}
-
-button{
-    background:#c68b4a;
-    color:white;
-    border:0;
-    padding:10px 16px;
-    border-radius:7px;
-    cursor:pointer;
-}
-
-nav{
-    margin-top:10px;
-}
-
+.logo{font-size:30px;font-weight:bold}
+nav{margin:12px 0}
 nav a{
-    color:white;
-    text-decoration:none;
-    margin:8px;
+color:white;
+text-decoration:none;
+margin:5px;
+font-size:14px;
 }
-
+button{
+background:#c68b4a;
+color:white;
+border:0;
+padding:11px 16px;
+border-radius:7px;
+cursor:pointer;
+margin:4px;
+}
 .hero{
-    text-align:center;
-    padding:80px 20px;
-    background:linear-gradient(#0008,#0008),
-    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80");
-    background-size:cover;
-    background-position:center;
-    color:white;
+text-align:center;
+padding:90px 20px;
+color:white;
+background:
+linear-gradient(#0008,#0008),
+url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80")
+center/cover;
 }
-
-.hero h2{
-    font-size:45px;
-    margin:10px;
-}
-
-section{
-    padding:45px 20px;
-}
-
-.title{
-    text-align:center;
-    font-size:30px;
-}
-
+.hero h1{font-size:52px;margin:10px}
+.hero p{font-size:20px}
+section{padding:45px 20px}
+.title{text-align:center;font-size:30px}
 .menu{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    max-width:1000px;
-    margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+max-width:1100px;
+margin:auto;
 }
-
 .food{
-    background:white;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 3px 12px #0002;
-    text-align:center;
+background:white;
+border-radius:12px;
+overflow:hidden;
+text-align:center;
+box-shadow:0 3px 12px #0002;
 }
-
 .food img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
+width:100%;
+height:180px;
+object-fit:cover;
 }
-
-.food div{
-    padding:15px;
-}
-
+.food-content{padding:15px}
 .price{
-    color:#a65f24;
-    font-size:20px;
-    font-weight:bold;
-    margin:10px;
+color:#a65f24;
+font-size:20px;
+font-weight:bold;
+margin:10px;
 }
-
 .about{
-    background:#ead8c1;
-    text-align:center;
+background:#ead8c1;
+text-align:center;
 }
-
-.contact{
-    text-align:center;
+.form{
+max-width:550px;
+margin:auto;
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 3px 12px #0002;
 }
-
-footer{
-    background:#4b2e1e;
-    color:white;
-    text-align:center;
-    padding:25px;
+input,textarea,select{
+width:100%;
+padding:13px;
+margin:7px 0 14px;
+border:1px solid #ddd;
+border-radius:7px;
 }
-
-.language{
-    margin-top:10px;
+textarea{height:90px}
+.contact{text-align:center}
+.map{
+width:100%;
+height:300px;
+border:0;
+border-radius:12px;
 }
-</style>
-</head>
-
-<body>
-
-<header>
-
-<h1>ROMAN</h1>
-
-<nav>
-<a href="#home">መነሻ</a>
-<a href="#menu">ምናሌ</a>
-<a href="#about">ስለ እኛ</a>
-<a href="#contact">ያግኙን</a>
-</nav>
-
-<div class="language">
-<button onclick="amharic()">🇪🇹 አማርኛ</button>
-<button onclick="english()">🇬🇧 English</button>
-</div>
-
-</header>
-
-<section class="hero" id="home">
-
-<h2 id="heroTitle">ROMAN</h2>
-
-<p id="heroText">
-ጣፋጭ ምግብ፣ ልዩ አገልግሎት
-</p>
-
-<button onclick="document.getElementById('menu').scrollIntoView()">
-<span id="menuButton">ምናሌ ይመልከቱ</span>
-</button>
-
-</section>
-
-<section id="menu">
-
-<h2 class="title" id="menuTitle">የROMAN ምናሌ</h2>
-
-<div class="menu">
-
-<div class="food">
-
-<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80">
-
-<div>
-<h3 id="food1">Classic Burger</h3>
-<p id="desc1">ጣፋጭ የበርገር ምግብ</p>
-
-<div class="price">250 ETB</div>
-
-<button onclick="order('Classic Burger')">
-<span id="order1">ትዕዛዝ</span>
-</button>
-</div>
-
-</div>
-
-<div class="food">
-
-<img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=80">
-
-<div>
-<h3 id="food2">Italian Pizza</h3>
-<p id="desc2">በልዩ አይብ የተዘጋጀ</p>
-
-<div class="price">350 ETB</div>
-
-<button onclick="order('Italian Pizza')">
-<span id="order2">ትዕዛዝ</span>
-</button>
-</div>
-
-</div>
-
-<div class="food">
-
-<img src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=800&q=80">
-
-<div>
-<h3 id="food3">Grilled Chicken</h3>
-<p id="desc3">በልዩ ቅመም የተጠበሰ ዶሮ</p>
-
-<div class="price">450 ETB</div>
-
-<button onclick="order('Grilled Chicken')">
-<span id="order3">ትዕዛዝ</span>
-</button>
-</div>
-
-</div>
-
-<div class="food">
-
-<img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80">
-
-<div>
-<h3 id="food4">Special Pasta</h3>
-<p id="desc4">የROMAN ልዩ ፓስታ</p>
-
-<div class="price">300 ETB</div>
-
-<button onclick="order('Special Pasta')">
-<span id="order4">ትዕዛዝ</span>
-</button>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="about" id="about">
-
-<h2 class="title" id="aboutTitle">
-ስለ ROMAN
-</h2>
-
-<p id="aboutText">
-ROMAN ጣፋጭ ምግብን፣ ጥራትን እና ልዩ የደንበኛ አገልግሎትን የሚያቀርብ ሬስቶራንት ነው።
-</p>
-
-</section>
-
-<section class="contact" id="contact">
-
-<h2 class="title" id="contactTitle">
-ያግኙን
-</h2>
-
-<p>📞 +251 900 000 000</p>
-
-<p>📍 Ethiopia</p>
-
-<p id="hours">
-🕐 8:00 AM - 10:00 PM
-</p>
-
-</section>
-
-<footer>
-
-<p>© 2026 ROMAN Restaurant</p>
-
-</footer>
-
-<script>
-
-function amharic(){
-
-document.getElementById("heroText").innerText =
-"ጣፋጭ ምግብ፣ ልዩ አገልግሎት";
-
-document.getElementById("menuButton").innerText =
-"ምናሌ ይመልከቱ";
-
-document.getElementById("menuTitle").innerText =
-"የROMAN ምናሌ";
-
-document.getElementById("food1").innerText =
-"Classic Burger";
-
-document.getElementById("desc1").innerText =
-"ጣፋጭ የበርገር ምግብ";
-
-document.getElementById("food2").innerText =
-"Italian Pizza";
-
-document.getElementById("desc2").innerText =
-"በልዩ አይብ የተዘጋጀ";
-
-document.getElementById("food3").innerText =
-"Grilled Chicken";
-
-document.getElementById("desc3").innerText =
-"በልዩ ቅመም የተጠበሰ ዶሮ";
-
-document.getElementById("food4").innerText =
-"Special Pasta";
-
-document.getElementById("desc4").innerText =
-"የROMAN ልዩ ፓስታ";
-
-document.getElementById("aboutTitle").innerText =
-"ስለ ROMAN";
-
-document.getElementById("aboutText").innerText =
-"ROMAN ጣፋጭ ምግብን፣ ጥራትን እና ልዩ የደንበኛ አገልግሎትን የሚያቀርብ ሬስቶራንት ነው።";
-
-document.getElementById("contactTitle").innerText =
-"ያግኙን";
-
-document.getElementById("hours").innerText =
-"🕐 8:00 AM - 10:00 PM";
-
-}
-
-function english(){
-
-document.getElementById("heroText").innerText =
-"Delicious Food, Exceptional Experience";
-
-document.getElementById("menuButton").innerText =
-"View Menu";
-
-document.getElementById("menuTitle").innerText =
-"ROMAN Menu";
-
-document.getElementById("desc1").innerText =
-"Our delicious classic burger";
-
-document.getElementById("desc2").innerText =
-"Fresh pizza with special cheese";
-
-document.getElementById("desc3").innerText =
-"Specially seasoned grilled chicken";
-
-document.getElementById("desc4").innerText =
-"ROMAN special pasta";
-
-document.getElementById("aboutTitle").innerText =
-"About ROMAN";
-
-document.getElementById("aboutText").innerText =
-"ROMAN is a restaurant offering delicious food, quality and exceptional customer service.";
-
-document.getElementById("contactTitle").innerText =
-"Contact Us";
-
-document.getElementById("hours").innerText =
-"🕐 8:00 AM - 10:00 PM";
-
-}
-
-function order(food){
-
-alert("You selected: " + food);
-
-}
-
-</script>
-
-</body>
-</html>
+.cart{
+position:fixed;
+right:15px;
+bottom:15px;
+background:#4b2e1e;
+color:white;
+padding:15px 20px;
+border-radius:50px;
+z-index:2000;
+cursor

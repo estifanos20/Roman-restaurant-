@@ -10,26 +10,32 @@
 body{margin:0;font-family:Arial,sans-serif;background:#f8f0e3;color:#3e2415}
 header{background:#4b2e1f;color:white;padding:15px;text-align:center;position:sticky;top:0;z-index:10}
 header h1{margin:0;font-size:30px}
-nav{margin-top:10px}
-nav a{color:white;text-decoration:none;margin:0 8px;font-size:14px}
-.lang{margin-top:10px}
+nav{margin:10px 0}
+nav a{color:white;text-decoration:none;margin:0 7px;font-size:14px}
 button{background:#8b5e3c;color:white;border:0;padding:10px 16px;border-radius:7px;cursor:pointer}
-.hero{text-align:center;padding:70px 20px;background:#d9c1a3}
-.hero h2{font-size:40px;margin:10px}
-.hero p{font-size:18px}
+button:hover{opacity:.85}
+.hero{text-align:center;padding:65px 20px;background:#d9c1a3}
+.hero h2{font-size:38px}
 section{padding:35px 15px;max-width:1000px;margin:auto}
 h2{text-align:center}
 .menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
 .card{background:white;padding:20px;border-radius:12px;box-shadow:0 3px 10px #0002;text-align:center}
-.card h3{margin:8px 0}
 .price{font-weight:bold;font-size:18px;margin:10px}
 form{max-width:500px;margin:auto;background:white;padding:20px;border-radius:12px;box-shadow:0 3px 10px #0002}
-input,select{width:100%;padding:12px;margin:7px 0;border:1px solid #ccc;border-radius:6px}
+input{width:100%;padding:12px;margin:7px 0;border:1px solid #ccc;border-radius:6px}
 form button{width:100%;margin-top:10px}
 .cart{position:fixed;right:15px;bottom:15px;background:#4b2e1f;color:white;padding:15px;border-radius:50%;font-size:20px;z-index:20}
 #cartBox{display:none;position:fixed;right:10px;bottom:75px;width:320px;max-width:90%;background:white;padding:20px;border-radius:12px;box-shadow:0 5px 20px #0004;z-index:30}
-footer{background:#4b2e1f;color:white;text-align:center;padding:25px}
 #map{width:100%;height:300px;border:0;border-radius:10px}
+footer{background:#4b2e1f;color:white;text-align:center;padding:25px}
+#adminPage{display:none;background:#eee;min-height:100vh;padding:20px}
+.adminBox{background:white;padding:15px;border-radius:12px;margin-bottom:15px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{background:#8b5e3c;color:white;padding:20px;border-radius:10px;text-align:center}
+.tableWrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:white}
+th,td{padding:9px;border:1px solid #ddd;text-align:left;white-space:nowrap}
+th{background:#4b2e1f;color:white}
 </style>
 </head>
 
@@ -45,10 +51,9 @@ footer{background:#4b2e1f;color:white;text-align:center;padding:25px}
 <a href="#contact">Contact</a>
 </nav>
 
-<div class="lang">
 <button onclick="english()">🇬🇧 English</button>
 <button onclick="amharic()">🇪🇹 አማርኛ</button>
-</div>
+<button onclick="adminLogin()">👨‍💼 Admin</button>
 </header>
 
 <section class="hero" id="home">
@@ -118,28 +123,20 @@ footer{background:#4b2e1f;color:white;text-align:center;padding:25px}
 </div>
 
 <section id="reserve">
-<h2 id="reserveTitle">🪑 Table Reservation</h2>
+<h2>🪑 Table Reservation</h2>
 
 <form onsubmit="reserve(event)">
-
 <input id="rname" placeholder="Your Name" required>
-
 <input id="rphone" placeholder="Phone Number" required>
-
 <input id="people" type="number" min="1" placeholder="Number of People" required>
-
 <input id="date" type="date" required>
-
 <input id="time" type="time" required>
-
 <button type="submit">Reserve Table</button>
-
 </form>
 </section>
 
 <section id="contact">
 <h2>📍 Contact</h2>
-
 <p>📞 +251 900 000 000</p>
 <p>📍 Ethiopia</p>
 <p>🕐 8:00 AM - 10:00 PM</p>
@@ -154,25 +151,90 @@ src="https://www.google.com/maps?q=Ethiopia&output=embed">
 <p>Delicious food. Beautiful moments.</p>
 </footer>
 
+
+<!-- ADMIN DASHBOARD -->
+
+<section id="adminPage">
+
+<div class="adminBox">
+<h2>👨‍💼 ROMAN Admin Dashboard</h2>
+<button onclick="loadAdmin()">🔄 Refresh</button>
+<button onclick="logoutAdmin()">🚪 Logout</button>
+</div>
+
+<div class="stats">
+
+<div class="stat">
+<h3 id="orderCount">0</h3>
+<p>Orders</p>
+</div>
+
+<div class="stat">
+<h3 id="reservationCount">0</h3>
+<p>Reservations</p>
+</div>
+
+<div class="stat">
+<h3 id="salesTotal">0 ETB</h3>
+<p>Total Sales</p>
+</div>
+
+</div>
+
+<div class="adminBox">
+<h2>📋 Orders & Reservations</h2>
+<div class="tableWrap">
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Type</th>
+<th>Name</th>
+<th>Phone</th>
+<th>Items</th>
+<th>People</th>
+<th>Reservation Date</th>
+<th>Time</th>
+<th>Total</th>
+</tr>
+</thead>
+
+<tbody id="adminData">
+<tr>
+<td colspan="9">Loading...</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+</div>
+
+</section>
+
+
 <script>
 
 const API="https://script.google.com/macros/s/AKfycbwcdcMosnktzsuZc_frZbWf4tUnWFnv3A6G3jKi2Nj7Emuq3QDd_VY0LoEcfkwZVMI/exec";
 
 let cart=[];
 
+
 function addCart(name,price){
 cart.push({name,price});
 alert(name+" added to cart");
 }
+
 
 function openCart(){
 document.getElementById("cartBox").style.display="block";
 showCart();
 }
 
+
 function closeCart(){
 document.getElementById("cartBox").style.display="none";
 }
+
 
 function showCart(){
 
@@ -180,22 +242,28 @@ let html="";
 let total=0;
 
 cart.forEach((item,i)=>{
+
 html+=`
 <p>
 ${item.name} - ${item.price} ETB
 <button onclick="removeCart(${i})">❌</button>
 </p>`;
+
 total+=item.price;
+
 });
 
 document.getElementById("cartItems").innerHTML=html;
 document.getElementById("total").innerText=total;
+
 }
+
 
 function removeCart(i){
 cart.splice(i,1);
 showCart();
 }
+
 
 function sendOrder(){
 
@@ -227,8 +295,13 @@ method:"POST",
 body:JSON.stringify(data)
 });
 
-window.open("https://wa.me/251900000000?text="+text,"_blank");
+window.open(
+"https://wa.me/251900000000?text="+text,
+"_blank"
+);
+
 }
+
 
 function reserve(e){
 
@@ -257,7 +330,7 @@ body:JSON.stringify(data)
 alert("Reservation sent successfully!");
 })
 .catch(()=>{
-alert("Reservation saved. Please contact us on WhatsApp.");
+alert("Please contact us on WhatsApp.");
 });
 
 let msg=
@@ -268,25 +341,140 @@ let msg=
 "Date: "+date+"%0A"+
 "Time: "+time;
 
-window.open("https://wa.me/251900000000?text="+msg,"_blank");
+window.open(
+"https://wa.me/251900000000?text="+msg,
+"_blank"
+);
 
 }
+
 
 function english(){
 
-document.getElementById("welcome").innerText="Welcome to ROMAN Restaurant";
-document.getElementById("heroText").innerText="Delicious food, beautiful moments.";
-document.getElementById("menuTitle").innerText="Our Menu";
-document.getElementById("reserveTitle").innerText="🪑 Table Reservation";
+document.getElementById("welcome").innerText=
+"Welcome to ROMAN Restaurant";
+
+document.getElementById("heroText").innerText=
+"Delicious food, beautiful moments.";
+
+document.getElementById("menuTitle").innerText=
+"Our Menu";
 
 }
 
+
 function amharic(){
 
-document.getElementById("welcome").innerText="እንኳን ወደ ROMAN Restaurant በደህና መጡ";
-document.getElementById("heroText").innerText="ጣፋጭ ምግብ፣ የማይረሱ ጊዜያት።";
-document.getElementById("menuTitle").innerText="የምግብ ዝርዝር";
-document.getElementById("reserveTitle").innerText="🪑 የጠረጴዛ ቦታ ማስያዣ";
+document.getElementById("welcome").innerText=
+"እንኳን ወደ ROMAN Restaurant በደህና መጡ";
+
+document.getElementById("heroText").innerText=
+"ጣፋጭ ምግብ፣ የማይረሱ ጊዜያት።";
+
+document.getElementById("menuTitle").innerText=
+"የምግብ ዝርዝር";
+
+}
+
+
+function adminLogin(){
+
+let password=prompt("Admin Password:");
+
+if(password==="roman123"){
+
+document.body.innerHTML=
+document.body.innerHTML;
+
+document.getElementById("adminPage").style.display="block";
+
+document.getElementById("adminPage")
+.scrollIntoView();
+
+loadAdmin();
+
+}else{
+
+alert("Wrong password ❌");
+
+}
+
+}
+
+
+function logoutAdmin(){
+
+document.getElementById("adminPage").style.display="none";
+
+window.scrollTo(0,0);
+
+}
+
+
+function loadAdmin(){
+
+fetch(API)
+
+.then(response=>response.json())
+
+.then(data=>{
+
+let orders=0;
+let reservations=0;
+let sales=0;
+
+let html="";
+
+data.forEach((row,index)=>{
+
+if(index===0)return;
+
+let type=row[1];
+
+if(type==="ORDER"){
+orders++;
+sales+=Number(row[8])||0;
+}
+
+if(type==="RESERVATION"){
+reservations++;
+}
+
+html+=`
+<tr>
+<td>${row[0]||""}</td>
+<td>${row[1]||""}</td>
+<td>${row[2]||""}</td>
+<td>${row[3]||""}</td>
+<td>${row[4]||""}</td>
+<td>${row[5]||""}</td>
+<td>${row[6]||""}</td>
+<td>${row[7]||""}</td>
+<td>${row[8]||""}</td>
+</tr>
+`;
+
+});
+
+document.getElementById("adminData").innerHTML=
+html || `<tr><td colspan="9">No data yet.</td></tr>`;
+
+document.getElementById("orderCount").innerText=orders;
+
+document.getElementById("reservationCount").innerText=
+reservations;
+
+document.getElementById("salesTotal").innerText=
+sales+" ETB";
+
+})
+
+.catch(error=>{
+
+document.getElementById("adminData").innerHTML=
+`<tr><td colspan="9">Unable to load data.</td></tr>`;
+
+});
 
 }
 

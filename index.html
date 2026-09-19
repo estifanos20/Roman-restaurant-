@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="am">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,111 +7,290 @@
 
 <style>
 *{box-sizing:border-box}
-body{
-margin:0;
-font-family:Arial,"Noto Sans Ethiopic",sans-serif;
-background:#f7efe3;
-color:#3b2418;
+body{margin:0;font-family:Arial,sans-serif;background:#f8f0e3;color:#3e2415}
+header{background:#4b2e1f;color:white;padding:15px;text-align:center;position:sticky;top:0;z-index:10}
+header h1{margin:0;font-size:30px}
+nav{margin-top:10px}
+nav a{color:white;text-decoration:none;margin:0 8px;font-size:14px}
+.lang{margin-top:10px}
+button{background:#8b5e3c;color:white;border:0;padding:10px 16px;border-radius:7px;cursor:pointer}
+.hero{text-align:center;padding:70px 20px;background:#d9c1a3}
+.hero h2{font-size:40px;margin:10px}
+.hero p{font-size:18px}
+section{padding:35px 15px;max-width:1000px;margin:auto}
+h2{text-align:center}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:white;padding:20px;border-radius:12px;box-shadow:0 3px 10px #0002;text-align:center}
+.card h3{margin:8px 0}
+.price{font-weight:bold;font-size:18px;margin:10px}
+form{max-width:500px;margin:auto;background:white;padding:20px;border-radius:12px;box-shadow:0 3px 10px #0002}
+input,select{width:100%;padding:12px;margin:7px 0;border:1px solid #ccc;border-radius:6px}
+form button{width:100%;margin-top:10px}
+.cart{position:fixed;right:15px;bottom:15px;background:#4b2e1f;color:white;padding:15px;border-radius:50%;font-size:20px;z-index:20}
+#cartBox{display:none;position:fixed;right:10px;bottom:75px;width:320px;max-width:90%;background:white;padding:20px;border-radius:12px;box-shadow:0 5px 20px #0004;z-index:30}
+footer{background:#4b2e1f;color:white;text-align:center;padding:25px}
+#map{width:100%;height:300px;border:0;border-radius:10px}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>ROMAN</h1>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#menu">Menu</a>
+<a href="#reserve">Reservation</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<div class="lang">
+<button onclick="english()">🇬🇧 English</button>
+<button onclick="amharic()">🇪🇹 አማርኛ</button>
+</div>
+</header>
+
+<section class="hero" id="home">
+<h2 id="welcome">Welcome to ROMAN Restaurant</h2>
+<p id="heroText">Delicious food, beautiful moments.</p>
+<button onclick="document.getElementById('menu').scrollIntoView()">View Menu</button>
+</section>
+
+<section id="menu">
+<h2 id="menuTitle">Our Menu</h2>
+
+<div class="menu">
+
+<div class="card">
+<h3>Classic Burger</h3>
+<p>Fresh beef burger</p>
+<div class="price">250 ETB</div>
+<button onclick="addCart('Classic Burger',250)">Add to Cart</button>
+</div>
+
+<div class="card">
+<h3>Italian Pizza</h3>
+<p>Fresh Italian pizza</p>
+<div class="price">350 ETB</div>
+<button onclick="addCart('Italian Pizza',350)">Add to Cart</button>
+</div>
+
+<div class="card">
+<h3>Grilled Chicken</h3>
+<p>Special grilled chicken</p>
+<div class="price">450 ETB</div>
+<button onclick="addCart('Grilled Chicken',450)">Add to Cart</button>
+</div>
+
+<div class="card">
+<h3>Special Pasta</h3>
+<p>Delicious pasta</p>
+<div class="price">300 ETB</div>
+<button onclick="addCart('Special Pasta',300)">Add to Cart</button>
+</div>
+
+<div class="card">
+<h3>Special Steak</h3>
+<p>Premium beef steak</p>
+<div class="price">550 ETB</div>
+<button onclick="addCart('Special Steak',550)">Add to Cart</button>
+</div>
+
+<div class="card">
+<h3>Fresh Salad</h3>
+<p>Healthy fresh salad</p>
+<div class="price">200 ETB</div>
+<button onclick="addCart('Fresh Salad',200)">Add to Cart</button>
+</div>
+
+</div>
+</section>
+
+<div class="cart" onclick="openCart()">🛒</div>
+
+<div id="cartBox">
+<h2>🛒 Cart</h2>
+<div id="cartItems"></div>
+<h3>Total: <span id="total">0</span> ETB</h3>
+<button onclick="sendOrder()">📱 Order on WhatsApp</button>
+<button onclick="closeCart()">Close</button>
+</div>
+
+<section id="reserve">
+<h2 id="reserveTitle">🪑 Table Reservation</h2>
+
+<form onsubmit="reserve(event)">
+
+<input id="rname" placeholder="Your Name" required>
+
+<input id="rphone" placeholder="Phone Number" required>
+
+<input id="people" type="number" min="1" placeholder="Number of People" required>
+
+<input id="date" type="date" required>
+
+<input id="time" type="time" required>
+
+<button type="submit">Reserve Table</button>
+
+</form>
+</section>
+
+<section id="contact">
+<h2>📍 Contact</h2>
+
+<p>📞 +251 900 000 000</p>
+<p>📍 Ethiopia</p>
+<p>🕐 8:00 AM - 10:00 PM</p>
+
+<iframe id="map"
+src="https://www.google.com/maps?q=Ethiopia&output=embed">
+</iframe>
+</section>
+
+<footer>
+<p>© 2026 ROMAN Restaurant</p>
+<p>Delicious food. Beautiful moments.</p>
+</footer>
+
+<script>
+
+const API="https://script.google.com/macros/s/AKfycbwcdcMosnktzsuZc_frZbWf4tUnWFnv3A6G3jKi2Nj7Emuq3QDd_VY0LoEcfkwZVMI/exec";
+
+let cart=[];
+
+function addCart(name,price){
+cart.push({name,price});
+alert(name+" added to cart");
 }
-header{
-background:#4b2e1e;
-color:white;
-padding:15px;
-text-align:center;
-position:sticky;
-top:0;
-z-index:1000;
+
+function openCart(){
+document.getElementById("cartBox").style.display="block";
+showCart();
 }
-.logo{font-size:30px;font-weight:bold}
-nav{margin:12px 0}
-nav a{
-color:white;
-text-decoration:none;
-margin:5px;
-font-size:14px;
+
+function closeCart(){
+document.getElementById("cartBox").style.display="none";
 }
-button{
-background:#c68b4a;
-color:white;
-border:0;
-padding:11px 16px;
-border-radius:7px;
-cursor:pointer;
-margin:4px;
+
+function showCart(){
+
+let html="";
+let total=0;
+
+cart.forEach((item,i)=>{
+html+=`
+<p>
+${item.name} - ${item.price} ETB
+<button onclick="removeCart(${i})">❌</button>
+</p>`;
+total+=item.price;
+});
+
+document.getElementById("cartItems").innerHTML=html;
+document.getElementById("total").innerText=total;
 }
-.hero{
-text-align:center;
-padding:90px 20px;
-color:white;
-background:
-linear-gradient(#0008,#0008),
-url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80")
-center/cover;
+
+function removeCart(i){
+cart.splice(i,1);
+showCart();
 }
-.hero h1{font-size:52px;margin:10px}
-.hero p{font-size:20px}
-section{padding:45px 20px}
-.title{text-align:center;font-size:30px}
-.menu{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-max-width:1100px;
-margin:auto;
+
+function sendOrder(){
+
+if(cart.length===0){
+alert("Cart is empty");
+return;
 }
-.food{
-background:white;
-border-radius:12px;
-overflow:hidden;
-text-align:center;
-box-shadow:0 3px 12px #0002;
+
+let text="ROMAN Restaurant Order:%0A%0A";
+let total=0;
+
+cart.forEach(item=>{
+text+="• "+item.name+" - "+item.price+" ETB%0A";
+total+=item.price;
+});
+
+text+="%0ATotal: "+total+" ETB";
+
+let data={
+type:"ORDER",
+name:"WhatsApp Customer",
+phone:"",
+items:cart.map(x=>x.name).join(", "),
+total:total
+};
+
+fetch(API,{
+method:"POST",
+body:JSON.stringify(data)
+});
+
+window.open("https://wa.me/251900000000?text="+text,"_blank");
 }
-.food img{
-width:100%;
-height:180px;
-object-fit:cover;
+
+function reserve(e){
+
+e.preventDefault();
+
+let name=document.getElementById("rname").value;
+let phone=document.getElementById("rphone").value;
+let people=document.getElementById("people").value;
+let date=document.getElementById("date").value;
+let time=document.getElementById("time").value;
+
+let data={
+type:"RESERVATION",
+name:name,
+phone:phone,
+people:people,
+date:date,
+time:time
+};
+
+fetch(API,{
+method:"POST",
+body:JSON.stringify(data)
+})
+.then(()=>{
+alert("Reservation sent successfully!");
+})
+.catch(()=>{
+alert("Reservation saved. Please contact us on WhatsApp.");
+});
+
+let msg=
+"ROMAN Table Reservation%0A%0A"+
+"Name: "+name+"%0A"+
+"Phone: "+phone+"%0A"+
+"People: "+people+"%0A"+
+"Date: "+date+"%0A"+
+"Time: "+time;
+
+window.open("https://wa.me/251900000000?text="+msg,"_blank");
+
 }
-.food-content{padding:15px}
-.price{
-color:#a65f24;
-font-size:20px;
-font-weight:bold;
-margin:10px;
+
+function english(){
+
+document.getElementById("welcome").innerText="Welcome to ROMAN Restaurant";
+document.getElementById("heroText").innerText="Delicious food, beautiful moments.";
+document.getElementById("menuTitle").innerText="Our Menu";
+document.getElementById("reserveTitle").innerText="🪑 Table Reservation";
+
 }
-.about{
-background:#ead8c1;
-text-align:center;
+
+function amharic(){
+
+document.getElementById("welcome").innerText="እንኳን ወደ ROMAN Restaurant በደህና መጡ";
+document.getElementById("heroText").innerText="ጣፋጭ ምግብ፣ የማይረሱ ጊዜያት።";
+document.getElementById("menuTitle").innerText="የምግብ ዝርዝር";
+document.getElementById("reserveTitle").innerText="🪑 የጠረጴዛ ቦታ ማስያዣ";
+
 }
-.form{
-max-width:550px;
-margin:auto;
-background:white;
-padding:25px;
-border-radius:12px;
-box-shadow:0 3px 12px #0002;
-}
-input,textarea,select{
-width:100%;
-padding:13px;
-margin:7px 0 14px;
-border:1px solid #ddd;
-border-radius:7px;
-}
-textarea{height:90px}
-.contact{text-align:center}
-.map{
-width:100%;
-height:300px;
-border:0;
-border-radius:12px;
-}
-.cart{
-position:fixed;
-right:15px;
-bottom:15px;
-background:#4b2e1e;
-color:white;
-padding:15px 20px;
-border-radius:50px;
-z-index:2000;
-cursor
+
+</script>
+
+</body>
+  </html>

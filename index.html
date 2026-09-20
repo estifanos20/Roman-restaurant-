@@ -2,233 +2,211 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ROMAN Restaurant</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ROMAN Restaurant 🇪🇹</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-  background:#f7efe2;
-  color:#3b2418;
+font-family:Arial,sans-serif;
+background:#f8f1e7;
+color:#351b10;
 }
-
 header{
-  background:#3b2418;
-  color:white;
-  padding:18px;
-  text-align:center;
-  position:sticky;
-  top:0;
-  z-index:1000;
+position:sticky;
+top:0;
+z-index:999;
+background:rgba(53,27,16,.97);
+color:white;
+padding:15px;
+text-align:center;
+box-shadow:0 3px 15px #0005;
 }
-
-header h1{
-  font-size:30px;
-  letter-spacing:3px;
+.logo{
+font-size:32px;
+font-weight:bold;
+letter-spacing:5px;
+color:#e7b85c;
 }
-
-header p{
-  margin-top:5px;
-  color:#f3d7ad;
-}
-
+header p{font-size:13px;color:#eee;margin:4px}
 nav{
-  margin-top:12px;
+display:flex;
+justify-content:center;
+gap:7px;
+flex-wrap:wrap;
+margin-top:10px;
 }
-
 nav button{
-  border:none;
-  background:#d9a441;
-  color:#3b2418;
-  padding:9px 14px;
-  border-radius:20px;
-  margin:3px;
-  font-weight:bold;
-  cursor:pointer;
+border:0;
+padding:8px 13px;
+border-radius:20px;
+background:#e7b85c;
+color:#351b10;
+font-weight:bold;
+cursor:pointer;
 }
-
 .hero{
-  min-height:300px;
-  padding:70px 20px;
-  text-align:center;
-  background:linear-gradient(#0008,#0008),
-  url("Kitfo.jpg") center/cover;
-  color:white;
+min-height:430px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:30px 15px;
+background:
+linear-gradient(#160b0780,#160b0780),
+url("Kitfo.jpg") center/cover;
+color:white;
 }
-
-.hero h2{
-  font-size:42px;
-  margin-bottom:12px;
+.hero-content h1{
+font-size:48px;
+margin-bottom:12px;
+text-shadow:2px 3px 8px #000;
 }
-
-.hero p{
-  font-size:18px;
+.hero-content p{
+font-size:20px;
+margin-bottom:22px;
 }
-
+.hero-btn{
+display:inline-block;
+padding:13px 25px;
+background:#e7b85c;
+color:#351b10;
+border-radius:30px;
+font-weight:bold;
+text-decoration:none;
+}
 section{
-  padding:35px 15px;
-  max-width:1100px;
-  margin:auto;
+max-width:1150px;
+margin:auto;
+padding:45px 15px;
 }
-
 .title{
-  text-align:center;
-  margin-bottom:25px;
+text-align:center;
+margin-bottom:28px;
 }
-
 .title h2{
-  font-size:30px;
-  color:#5b321d;
+font-size:32px;
+color:#542a18;
 }
-
+.title p{
+margin-top:7px;
+color:#765746;
+}
 .menu{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:22px;
 }
-
 .card{
-  background:white;
-  border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 4px 12px #0002;
+background:white;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 5px 18px #0002;
+transition:.25s;
 }
-
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 25px #0003;
+}
 .card img{
-  width:100%;
-  height:170px;
-  object-fit:cover;
+width:100%;
+height:180px;
+object-fit:cover;
 }
-
-.card-content{
-  padding:15px;
-}
-
+.card-content{padding:16px}
 .card h3{
-  font-size:21px;
-  margin-bottom:8px;
+font-size:21px;
+margin-bottom:8px;
 }
-
 .price{
-  color:#a45d16;
-  font-weight:bold;
-  margin-bottom:12px;
+color:#a45b16;
+font-weight:bold;
+font-size:17px;
+margin-bottom:12px;
 }
-
-.card button,
-.submit-btn{
-  width:100%;
-  border:none;
-  background:#5b321d;
-  color:white;
-  padding:12px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:bold;
+.card button,.submit-btn{
+width:100%;
+border:0;
+padding:12px;
+border-radius:9px;
+background:#542a18;
+color:white;
+font-weight:bold;
+cursor:pointer;
 }
-
-.card button:hover,
-.submit-btn:hover{
-  background:#8a512d;
+.card button:hover,.submit-btn:hover{
+background:#7b4225;
 }
-
 .box{
-  background:white;
-  padding:25px;
-  border-radius:15px;
-  box-shadow:0 4px 12px #0002;
-  margin-top:20px;
+background:white;
+padding:25px;
+border-radius:18px;
+box-shadow:0 5px 18px #0002;
 }
-
 input,select{
-  width:100%;
-  padding:12px;
-  margin:7px 0;
-  border:1px solid #ccc;
-  border-radius:7px;
+width:100%;
+padding:13px;
+margin:7px 0;
+border:1px solid #ddd;
+border-radius:9px;
+font-size:15px;
 }
-
 .cart-item{
-  display:flex;
-  justify-content:space-between;
-  padding:10px 0;
-  border-bottom:1px solid #ddd;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 0;
+border-bottom:1px solid #eee;
 }
-
 .total{
-  font-size:21px;
-  font-weight:bold;
-  margin:15px 0;
+font-size:22px;
+font-weight:bold;
+padding:18px 0;
 }
-
-.payment{
-  line-height:2;
+.payment p{
+padding:6px 0;
+font-size:17px;
 }
-
-.payment strong{
-  color:#5b321d;
-}
-
-footer{
-  background:#3b2418;
-  color:white;
-  text-align:center;
-  padding:25px;
-  margin-top:30px;
-}
-
 .whatsapp{
-  display:block;
-  text-align:center;
-  text-decoration:none;
-  background:#25D366;
-  color:white;
-  padding:13px;
-  border-radius:8px;
-  margin-top:10px;
-  font-weight:bold;
+display:block;
+background:#25d366;
+color:white;
+text-align:center;
+padding:13px;
+border-radius:9px;
+text-decoration:none;
+font-weight:bold;
+margin-top:12px;
 }
-
-.hidden{
-  display:none;
+footer{
+background:#351b10;
+color:white;
+text-align:center;
+padding:30px 15px;
+margin-top:30px;
 }
-
-.admin-table{
-  width:100%;
-  overflow-x:auto;
-}
-
+.hidden{display:none}
 table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:700px;
+width:100%;
+border-collapse:collapse;
+min-width:750px;
 }
-
 th,td{
-  border:1px solid #ddd;
-  padding:9px;
-  text-align:left;
+padding:9px;
+border:1px solid #ddd;
 }
-
 th{
-  background:#5b321d;
-  color:white;
+background:#542a18;
+color:white;
 }
+.table-scroll{overflow-x:auto}
 
 @media(max-width:600px){
-  .hero h2{
-    font-size:32px;
-  }
-
-  section{
-    padding:25px 12px;
-  }
+.hero{min-height:360px}
+.hero-content h1{font-size:36px}
+.hero-content p{font-size:16px}
+.title h2{font-size:27px}
 }
 </style>
 </head>
@@ -236,571 +214,409 @@ th{
 <body>
 
 <header>
-  <h1>ROMAN</h1>
-  <p>Traditional Ethiopian Restaurant</p>
+<div class="logo">ROMAN</div>
+<p>Traditional Ethiopian Restaurant 🇪🇹</p>
 
-  <nav>
-    <button onclick="setLanguage('en')">English</button>
-    <button onclick="setLanguage('am')">አማርኛ</button>
-    <button onclick="showSection('menuSection')">Menu</button>
-    <button onclick="showSection('reservationSection')">Reservation</button>
-    <button onclick="showSection('paymentSection')">Payment</button>
-    <button onclick="showSection('adminSection')">Admin</button>
-  </nav>
+<nav>
+<button onclick="go('menu')">🍽️ Menu</button>
+<button onclick="go('reservation')">📅 Reservation</button>
+<button onclick="go('payment')">💳 Payment</button>
+<button onclick="go('cart')">🛒 Cart</button>
+<button onclick="go('admin')">🔐 Admin</button>
+</nav>
 </header>
 
 <div class="hero">
-  <h2 id="heroTitle">Welcome to ROMAN</h2>
-  <p id="heroText">Authentic Ethiopian taste, prepared with love.</p>
+<div class="hero-content">
+<h1>Welcome to ROMAN</h1>
+<p>Authentic Ethiopian taste, prepared with love ❤️</p>
+<a class="hero-btn" href="#menu">Explore Menu</a>
+</div>
 </div>
 
-<!-- MENU -->
-<section id="menuSection">
-  <div class="title">
-    <h2 id="menuTitle">Our Ethiopian Menu</h2>
-  </div>
+<section id="menu">
+<div class="title">
+<h2>🍽️ Ethiopian Menu</h2>
+<p>Fresh traditional food from Ethiopia</p>
+</div>
 
-  <div class="menu">
+<div class="menu">
 
-    <div class="card">
-      <img src="Kitfo.jpg" alt="ክትፎ">
-      <div class="card-content">
-        <h3>ክትፎ</h3>
-        <p class="price">1,500 ETB</p>
-        <button onclick="addToCart('ክትፎ',1500)">Add to Cart</button>
-      </div>
-    </div>
+<div class="card">
+<img src="Kitfo.jpg">
+<div class="card-content">
+<h3>ክትፎ</h3>
+<p class="price">1,500 ETB</p>
+<button onclick="add('ክትፎ',1500)">Add to Cart</button>
+</div></div>
 
-    <div class="card">
-      <img src="Kurtsga.jpg" alt="ጥሬ ስጋ">
-      <div class="card-content">
-        <h3>ጥሬ ስጋ</h3>
-        <p class="price">2,500 ETB / 1kg</p>
-        <button onclick="addToCart('ጥሬ ስጋ',2500)">Add to Cart</button>
-      </div>
-    </div>
+<div class="card">
+<img src="Kurtsga.jpg">
+<div class="card-content">
+<h3>ጥሬ ስጋ</h3>
+<p class="price">2,500 ETB / 1kg</p>
+<button onclick="add('ጥሬ ስጋ',2500)">Add to Cart</button>
+</div></div>
 
-    <div class="card">
-      <div style="height:170px;background:#ead7bd;display:flex;align-items:center;justify-content:center;font-size:55px;">
-        🍗
-      </div>
-      <div class="card-content">
-        <h3>ዶሮ ወጥ</h3>
-        <p class="price">800 ETB</p>
-        <button onclick="addToCart('ዶሮ ወጥ',800)">Add to Cart</button>
-      </div>
-    </div>
+<div class="card">
+<div style="height:180px;background:#ead7bd;display:flex;align-items:center;justify-content:center;font-size:60px">🍗</div>
+<div class="card-content">
+<h3>ዶሮ ወጥ</h3>
+<p class="price">800 ETB</p>
+<button onclick="add('ዶሮ ወጥ',800)">Add to Cart</button>
+</div></div>
 
-    <div class="card">
-      <img src="Tibs.jpg" alt="ጥብስ">
-      <div class="card-content">
-        <h3>ጥብስ</h3>
-        <p class="price">2,000 ETB / 1kg</p>
-        <button onclick="addToCart('ጥብስ',2000)">Add to Cart</button>
-      </div>
-    </div>
+<div class="card">
+<img src="Tibs.jpg">
+<div class="card-content">
+<h3>ጥብስ</h3>
+<p class="price">2,000 ETB / 1kg</p>
+<button onclick="add('ጥብስ',2000)">Add to Cart</button>
+</div></div>
 
-    <div class="card">
-      <img src="Shiro.jpg" alt="ሽሮ">
-      <div class="card-content">
-        <h3>ሽሮ</h3>
-        <p class="price">250 ETB</p>
-        <button onclick="addToCart('ሽሮ',250)">Add to Cart</button>
-      </div>
-    </div>
+<div class="card">
+<img src="Shiro.jpg">
+<div class="card-content">
+<h3>ሽሮ</h3>
+<p class="price">250 ETB</p>
+<button onclick="add('ሽሮ',250)">Add to Cart</button>
+</div></div>
 
-    <!-- FIXED: Frfr.jpg -->
-    <div class="card">
-      <img src="Frfr.jpg" alt="ፍርፍር">
-      <div class="card-content">
-        <h3>ፍርፍር</h3>
-        <p class="price">250 ETB</p>
-        <button onclick="addToCart('ፍርፍር',250)">Add to Cart</button>
-      </div>
-    </div>
+<div class="card">
+<img src="Frfr.jpg">
+<div class="card-content">
+<h3>ፍርፍር</h3>
+<p class="price">250 ETB</p>
+<button onclick="add('ፍርፍር',250)">Add to Cart</button>
+</div></div>
 
-    <div class="card">
-      <img src="Kikil.jpg" alt="ቅቅል">
-      <div class="card-content">
-        <h3>ቅቅል</h3>
-        <p class="price">500 ETB</p>
-        <button onclick="addToCart('ቅቅል',500)">Add to Cart</button>
-      </div>
-    </div>
+<div class="card">
+<img src="Kikil.jpg">
+<div class="card-content">
+<h3>ቅቅል</h3>
+<p class="price">500 ETB</p>
+<button onclick="add('ቅቅል',500)">Add to Cart</button>
+</div></div>
 
-    <div class="card">
-      <img src="Chukame.jpg" alt="ጩካሜ">
-      <div class="card-content">
-        <h3>ጩካሜ</h3>
-        <p class="price">700 ETB</p>
-        <button onclick="addToCart('ጩካሜ',700)">Add to Cart</button>
-      </div>
-    </div>
+<div class="card">
+<img src="Chukame.jpg">
+<div class="card-content">
+<h3>ጩካሜ</h3>
+<p class="price">700 ETB</p>
+<button onclick="add('ጩካሜ',700)">Add to Cart</button>
+</div></div>
 
-    <div class="card">
-      <img src="Chororsa.jpg" alt="ጮርጮርሳ">
-      <div class="card-content">
-        <h3>ጮርጮርሳ</h3>
-        <p class="price">650 ETB</p>
-        <button onclick="addToCart('ጮርጮርሳ',650)">Add to Cart</button>
-      </div>
-    </div>
+<div class="card">
+<img src="Chororsa.jpg">
+<div class="card-content">
+<h3>ጮርጮርሳ</h3>
+<p class="price">650 ETB</p>
+<button onclick="add('ጮርጮርሳ',650)">Add to Cart</button>
+</div></div>
 
-    <div class="card">
-      <img src="Tihilo.jpg" alt="ጥህሎ">
-      <div class="card-content">
-        <h3>ጥህሎ</h3>
-        <p class="price">550 ETB</p>
-        <button onclick="addToCart('ጥህሎ',550)">Add to Cart</button>
-      </div>
-    </div>
+<div class="card">
+<img src="Tihilo.jpg">
+<div class="card-content">
+<h3>ጥህሎ</h3>
+<p class="price">550 ETB</p>
+<button onclick="add('ጥህሎ',550)">Add to Cart</button>
+</div></div>
 
-    <div class="card">
-      <img src="Beyaynet.jpg" alt="በያይነት">
-      <div class="card-content">
-        <h3>በያይነት</h3>
-        <p class="price">300 ETB</p>
-        <button onclick="addToCart('በያይነት',300)">Add to Cart</button>
-      </div>
-    </div>
+<div class="card">
+<img src="Beyaynet.jpg">
+<div class="card-content">
+<h3>በያይነት</h3>
+<p class="price">300 ETB</p>
+<button onclick="add('በያይነት',300)">Add to Cart</button>
+</div></div>
 
-    <div class="card">
-      <img src="Coffee.jpg" alt="ቡና">
-      <div class="card-content">
-        <h3>ቡና</h3>
-        <p class="price">50 ETB</p>
-        <button onclick="addToCart('ቡና',50)">Add to Cart</button>
-      </div>
-    </div>
+<div class="card">
+<img src="Coffee.jpg">
+<div class="card-content">
+<h3>ቡና</h3>
+<p class="price">50 ETB</p>
+<button onclick="add('ቡና',50)">Add to Cart</button>
+</div></div>
 
-  </div>
+</div>
 </section>
 
-<!-- CART -->
-<section>
-  <div class="title">
-    <h2>🛒 Cart</h2>
-  </div>
-
-  <div class="box">
-    <div id="cartItems">
-      <p>Your cart is empty.</p>
-    </div>
-
-    <div class="total">
-      Total: <span id="cartTotal">0</span> ETB
-    </div>
-
-    <input id="orderName" placeholder="Your Name">
-    <input id="orderPhone" placeholder="Phone Number">
-
-    <button class="submit-btn" onclick="sendOrder()">
-      Order via WhatsApp
-    </button>
-  </div>
+<section id="cart">
+<div class="title"><h2>🛒 Your Cart</h2></div>
+<div class="box">
+<div id="cartItems">Your cart is empty.</div>
+<div class="total">Total: <span id="total">0</span> ETB</div>
+<input id="orderName" placeholder="Your Name">
+<input id="orderPhone" placeholder="Phone Number">
+<button class="submit-btn" onclick="order()">Order via WhatsApp</button>
+</div>
 </section>
 
-<!-- RESERVATION -->
-<section id="reservationSection">
-  <div class="title">
-    <h2>🍽️ Table Reservation</h2>
-  </div>
-
-  <div class="box">
-    <input id="resName" placeholder="Full Name">
-    <input id="resPhone" placeholder="Phone Number">
-
-    <input id="resPeople" type="number" placeholder="Number of People">
-
-    <input id="resDate" type="date">
-    <input id="resTime" type="time">
-
-    <button class="submit-btn" onclick="reserveTable()">
-      Reserve Table
-    </button>
-  </div>
+<section id="reservation">
+<div class="title"><h2>📅 Table Reservation</h2></div>
+<div class="box">
+<input id="resName" placeholder="Full Name">
+<input id="resPhone" placeholder="Phone Number">
+<input id="resPeople" type="number" placeholder="Number of People">
+<input id="resDate" type="date">
+<input id="resTime" type="time">
+<button class="submit-btn" onclick="reserve()">Reserve Table</button>
+</div>
 </section>
 
-<!-- PAYMENT -->
-<section id="paymentSection">
-  <div class="title">
-    <h2>💳 Payment</h2>
-  </div>
-
-  <div class="box payment">
-    <p><strong>Telebirr:</strong> 0908888831</p>
-    <p><strong>CBE Birr:</strong> 0908888831</p>
-    <p><strong>CBE Bank:</strong> 1000243085587</p>
-    <p><strong>Account Name:</strong> Estifanos Bechago</p>
-
-    <hr style="margin:15px 0">
-
-    <input id="paidName" placeholder="Your Name">
-    <input id="paidPhone" placeholder="Phone Number">
-    <input id="paidAmount" type="number" placeholder="Paid Amount">
-
-    <button class="submit-btn" onclick="paidConfirmation()">
-      I Paid
-    </button>
-  </div>
+<section id="payment">
+<div class="title"><h2>💳 Payment</h2></div>
+<div class="box payment">
+<p><b>Telebirr:</b> 0908888831</p>
+<p><b>CBE Birr:</b> 0908888831</p>
+<p><b>CBE Bank:</b> 1000243085587</p>
+<p><b>Account Name:</b> Estifanos Bechago</p>
+<hr>
+<input id="paidName" placeholder="Your Name">
+<input id="paidPhone" placeholder="Phone Number">
+<input id="paidAmount" type="number" placeholder="Paid Amount">
+<button class="submit-btn" onclick="paid()">I Paid</button>
+</div>
 </section>
 
-<!-- ADMIN -->
-<section id="adminSection">
-  <div class="title">
-    <h2>🔐 Admin Dashboard</h2>
-  </div>
+<section id="admin">
+<div class="title"><h2>🔐 Admin Dashboard</h2></div>
 
-  <div class="box" id="adminLogin">
-    <input id="adminPassword" type="password" placeholder="Admin Password">
-    <button class="submit-btn" onclick="adminLogin()">Login</button>
-  </div>
+<div class="box" id="login">
+<input id="password" type="password" placeholder="Admin Password">
+<button class="submit-btn" onclick="login()">Login</button>
+</div>
 
-  <div class="box hidden" id="dashboard">
-    <h2>ROMAN Orders Dashboard</h2>
-    <br>
-
-    <button class="submit-btn" onclick="loadOrders()">
-      Refresh Orders
-    </button>
-
-    <br><br>
-
-    <div class="admin-table">
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Type</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Items</th>
-            <th>People</th>
-            <th>Reservation Date</th>
-            <th>Time</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-
-        <tbody id="ordersTable">
-        </tbody>
-      </table>
-    </div>
-  </div>
+<div class="box hidden" id="dashboard">
+<h2>ROMAN Orders</h2><br>
+<button class="submit-btn" onclick="load()">Refresh</button>
+<br><br>
+<div class="table-scroll">
+<table>
+<thead>
+<tr>
+<th>Date</th><th>Type</th><th>Name</th><th>Phone</th>
+<th>Items</th><th>People</th><th>Reservation Date</th>
+<th>Time</th><th>Total</th>
+</tr>
+</thead>
+<tbody id="orders"></tbody>
+</table>
+</div>
+</div>
 </section>
 
 <footer>
-  <h2>ROMAN Restaurant</h2>
-  <p>Authentic Ethiopian Food 🇪🇹</p>
-
-  <a class="whatsapp"
-     href="https://wa.me/251908888831"
-     target="_blank">
-    WhatsApp: 0908888831
-  </a>
-
-  <br>
-  <p>© 2026 ROMAN Restaurant</p>
+<h2>ROMAN Restaurant 🇪🇹</h2>
+<p>Authentic Ethiopian Food</p>
+<a class="whatsapp" href="https://wa.me/251908888831" target="_blank">
+💬 WhatsApp: 0908888831
+</a>
+<p style="margin-top:15px">© 2026 ROMAN Restaurant</p>
 </footer>
 
 <script>
+const API="https://script.google.com/macros/s/AKfycbwcdcMosnktzsuZc_frZbWf4tUnWFnv3A6G3jKi2Nj7Emuq3QDd_VY0LoEcfkwZVMI/exec";
+const WA="251908888831";
+let cart=[];
 
-const API_URL =
-"https://script.google.com/macros/s/AKfycbwcdcMosnktzsuZc_frZbWf4tUnWFnv3A6G3jKi2Nj7Emuq3QDd_VY0LoEcfkwZVMI/exec";
-
-const WHATSAPP = "251908888831";
-
-let cart = [];
-
-function showSection(id){
-  document.getElementById(id).scrollIntoView({
-    behavior:"smooth"
-  });
+function go(id){
+document.getElementById(id).scrollIntoView({behavior:"smooth"});
 }
 
-function setLanguage(lang){
-
-  if(lang === "am"){
-    document.getElementById("heroTitle").innerText =
-      "እንኳን ወደ ROMAN በደህና መጡ";
-
-    document.getElementById("heroText").innerText =
-      "የኢትዮጵያን ባህላዊ ጣዕም በፍቅር እናቀርባለን";
-
-    document.getElementById("menuTitle").innerText =
-      "የኢትዮጵያ ምግቦች";
-  }else{
-
-    document.getElementById("heroTitle").innerText =
-      "Welcome to ROMAN";
-
-    document.getElementById("heroText").innerText =
-      "Authentic Ethiopian taste, prepared with love.";
-
-    document.getElementById("menuTitle").innerText =
-      "Our Ethiopian Menu";
-  }
+function add(name,price){
+cart.push({name,price});
+update();
+alert(name+" added to cart");
 }
 
-function addToCart(name,price){
+function update(){
+let box=document.getElementById("cartItems");
+let total=0;
 
-  cart.push({
-    name:name,
-    price:price
-  });
-
-  updateCart();
-
-  alert(name + " added to cart");
+if(!cart.length){
+box.innerHTML="Your cart is empty.";
+document.getElementById("total").innerText="0";
+return;
 }
 
-function updateCart(){
+box.innerHTML="";
 
-  const box = document.getElementById("cartItems");
+cart.forEach((x,i)=>{
+total+=x.price;
+box.innerHTML+=`
+<div class="cart-item">
+<span>${x.name}</span>
+<span>${x.price} ETB
+<button onclick="removeItem(${i})" style="background:#b33;color:white;border:0;padding:4px 8px;border-radius:5px">X</button>
+</span>
+</div>`;
+});
 
-  if(cart.length === 0){
-    box.innerHTML = "<p>Your cart is empty.</p>";
-    document.getElementById("cartTotal").innerText = "0";
-    return;
-  }
-
-  let total = 0;
-
-  box.innerHTML = "";
-
-  cart.forEach((item,index)=>{
-
-    total += item.price;
-
-    box.innerHTML += `
-      <div class="cart-item">
-        <span>${item.name}</span>
-        <span>${item.price} ETB
-        <button onclick="removeItem(${index})"
-        style="margin-left:8px;border:none;background:#b33;color:white;border-radius:5px;padding:4px 7px;">
-        X
-        </button>
-        </span>
-      </div>
-    `;
-  });
-
-  document.getElementById("cartTotal").innerText =
-    total.toLocaleString();
+document.getElementById("total").innerText=total.toLocaleString();
 }
 
-function removeItem(index){
-
-  cart.splice(index,1);
-
-  updateCart();
+function removeItem(i){
+cart.splice(i,1);
+update();
 }
 
-function sendOrder(){
+function order(){
 
-  if(cart.length === 0){
-    alert("Please add food to your cart.");
-    return;
-  }
-
-  const name =
-    document.getElementById("orderName").value;
-
-  const phone =
-    document.getElementById("orderPhone").value;
-
-  if(!name || !phone){
-    alert("Please enter your name and phone.");
-    return;
-  }
-
-  let total = 0;
-
-  let items = cart.map(item=>{
-    total += item.price;
-    return item.name + " - " + item.price + " ETB";
-  }).join(", ");
-
-  const message =
-    "ROMAN RESTAURANT ORDER%0A%0A" +
-    "Name: " + encodeURIComponent(name) +
-    "%0APhone: " + encodeURIComponent(phone) +
-    "%0AItems: " + encodeURIComponent(items) +
-    "%0ATotal: " + total + " ETB";
-
-  fetch(API_URL,{
-    method:"POST",
-    body:JSON.stringify({
-      type:"ORDER",
-      name:name,
-      phone:phone,
-      items:items,
-      total:total
-    })
-  }).catch(()=>{});
-
-  window.open(
-    "https://wa.me/" + WHATSAPP + "?text=" + message,
-    "_blank"
-  );
+if(!cart.length){
+alert("Cart is empty");
+return;
 }
 
-function reserveTable(){
+let name=document.getElementById("orderName").value;
+let phone=document.getElementById("orderPhone").value;
 
-  const name =
-    document.getElementById("resName").value;
-
-  const phone =
-    document.getElementById("resPhone").value;
-
-  const people =
-    document.getElementById("resPeople").value;
-
-  const date =
-    document.getElementById("resDate").value;
-
-  const time =
-    document.getElementById("resTime").value;
-
-  if(!name || !phone || !people || !date || !time){
-    alert("Please fill all reservation information.");
-    return;
-  }
-
-  fetch(API_URL,{
-    method:"POST",
-    body:JSON.stringify({
-      type:"RESERVATION",
-      name:name,
-      phone:phone,
-      people:people,
-      date:date,
-      time:time
-    })
-  }).catch(()=>{});
-
-  const message =
-    "ROMAN TABLE RESERVATION%0A%0A" +
-    "Name: " + encodeURIComponent(name) +
-    "%0APhone: " + encodeURIComponent(phone) +
-    "%0APeople: " + people +
-    "%0ADate: " + date +
-    "%0ATime: " + time;
-
-  window.open(
-    "https://wa.me/" + WHATSAPP + "?text=" + message,
-    "_blank"
-  );
-
-  alert("Reservation sent successfully!");
+if(!name||!phone){
+alert("Enter your name and phone");
+return;
 }
 
-function paidConfirmation(){
+let total=0;
 
-  const name =
-    document.getElementById("paidName").value;
+let items=cart.map(x=>{
+total+=x.price;
+return x.name+" - "+x.price+" ETB";
+}).join(", ");
 
-  const phone =
-    document.getElementById("paidPhone").value;
+fetch(API,{
+method:"POST",
+body:JSON.stringify({
+type:"ORDER",
+name:name,
+phone:phone,
+items:items,
+total:total
+})
+}).catch(()=>{});
 
-  const amount =
-    document.getElementById("paidAmount").value;
+let msg=
+"ROMAN ORDER%0A"+
+"Name: "+encodeURIComponent(name)+
+"%0APhone: "+encodeURIComponent(phone)+
+"%0AItems: "+encodeURIComponent(items)+
+"%0ATotal: "+total+" ETB";
 
-  if(!name || !phone || !amount){
-    alert("Please fill all payment information.");
-    return;
-  }
-
-  fetch(API_URL,{
-    method:"POST",
-    body:JSON.stringify({
-      type:"PAYMENT",
-      name:name,
-      phone:phone,
-      total:amount
-    })
-  }).catch(()=>{});
-
-  const message =
-    "ROMAN PAYMENT CONFIRMATION%0A%0A" +
-    "Name: " + encodeURIComponent(name) +
-    "%0APhone: " + encodeURIComponent(phone) +
-    "%0APaid Amount: " + amount + " ETB";
-
-  window.open(
-    "https://wa.me/" + WHATSAPP + "?text=" + message,
-    "_blank"
-  );
-
-  alert("Payment confirmation sent!");
+window.open("https://wa.me/"+WA+"?text="+msg,"_blank");
 }
 
-function adminLogin(){
+function reserve(){
 
-  const password =
-    document.getElementById("adminPassword").value;
+let name=document.getElementById("resName").value;
+let phone=document.getElementById("resPhone").value;
+let people=document.getElementById("resPeople").value;
+let date=document.getElementById("resDate").value;
+let time=document.getElementById("resTime").value;
 
-  if(password === "roman123"){
-
-    document.getElementById("adminLogin")
-      .classList.add("hidden");
-
-    document.getElementById("dashboard")
-      .classList.remove("hidden");
-
-    loadOrders();
-
-  }else{
-
-    alert("Wrong password!");
-  }
+if(!name||!phone||!people||!date||!time){
+alert("Fill all information");
+return;
 }
 
-async function loadOrders(){
+fetch(API,{
+method:"POST",
+body:JSON.stringify({
+type:"RESERVATION",
+name:name,
+phone:phone,
+people:people,
+date:date,
+time:time
+})
+}).catch(()=>{});
 
-  const table =
-    document.getElementById("ordersTable");
+let msg=
+"ROMAN RESERVATION%0A"+
+"Name: "+encodeURIComponent(name)+
+"%0APhone: "+encodeURIComponent(phone)+
+"%0APeople: "+people+
+"%0ADate: "+date+
+"%0ATime: "+time;
 
-  table.innerHTML =
-    "<tr><td colspan='9'>Loading...</td></tr>";
-
-  try{
-
-    const response =
-      await fetch(API_URL);
-
-    const data =
-      await response.json();
-
-    table.innerHTML = "";
-
-    for(let i=1;i<data.length;i++){
-
-      const row = data[i];
-
-      table.innerHTML += `
-        <tr>
-          <td>${row[0] || ""}</td>
-          <td>${row[1] || ""}</td>
-          <td>${row[2] || ""}</td>
-          <td>${row[3] || ""}</td>
-          <td>${row[4] || ""}</td>
-          <td>${row[5] || ""}</td>
-          <td>${row[6] || ""}</td>
-          <td>${row[7] || ""}</td>
-          <td>${row[8] || ""}</td>
-        </tr>
-      `;
-    }
-
-  }catch(error){
-
-    table.innerHTML =
-      "<tr><td colspan='9'>Could not load orders.</td></tr>";
-  }
+window.open("https://wa.me/"+WA+"?text="+msg,"_blank");
 }
 
+function paid(){
+
+let name=document.getElementById("paidName").value;
+let phone=document.getElementById("paidPhone").value;
+let amount=document.getElementById("paidAmount").value;
+
+if(!name||!phone||!amount){
+alert("Fill all information");
+return;
+}
+
+fetch(API,{
+method:"POST",
+body:JSON.stringify({
+type:"PAYMENT",
+name:name,
+phone:phone,
+total:amount
+})
+}).catch(()=>{});
+
+let msg=
+"ROMAN PAYMENT%0A"+
+"Name: "+encodeURIComponent(name)+
+"%0APhone: "+encodeURIComponent(phone)+
+"%0APaid: "+amount+" ETB";
+
+window.open("https://wa.me/"+WA+"?text="+msg,"_blank");
+}
+
+function login(){
+
+if(document.getElementById("password").value==="roman123"){
+document.getElementById("login").classList.add("hidden");
+document.getElementById("dashboard").classList.remove("hidden");
+load();
+}else{
+alert("Wrong password");
+}
+}
+
+async function load(){
+
+let table=document.getElementById("orders");
+
+table.innerHTML="<tr><td colspan='9'>Loading...</td></tr>";
+
+try{
+
+let response=await fetch(API);
+let data=await response.json();
+
+table.innerHTML="";
+
+for(let i=1;i<data.length;i++){
+
+let r=data[i];
+
+table.innerHTML+=`
+<tr>
+<td>${r[0]||""}</td>
+<td>${r[1]||""}</td>
+<td>${r[2]||""}</td>
+<td>${r[3]||""}</td>
+<td>${r[4]||""}</td>
+<td>${r[5]||""}</td>
+<td>${r[6]||""}</td>
+<td>${r[7]||""}</td>
+<td>${r[8]||""}</td>
+</tr>`;
+}
+
+}catch(e){
+table.innerHTML="<tr><td colspan='9'>Could not load orders.</td></tr>";
+}
+}
 </script>
 
 </body>
-</html>
+  </html>

@@ -7,27 +7,28 @@
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial;background:#f8f0e3;color:#3e2415}
-header{background:#4b2e1f;color:white;padding:15px;text-align:center;position:sticky;top:0;z-index:10}
+header{background:#4b2e1f;color:#fff;padding:15px;text-align:center;position:sticky;top:0;z-index:10}
 header h1{margin:0;font-size:30px}
-nav a{color:white;text-decoration:none;margin:6px;font-size:14px}
-button{background:#8b5e3c;color:white;border:0;padding:10px 15px;border-radius:7px;margin:4px;cursor:pointer}
+nav{margin:10px}
+nav a{color:#fff;text-decoration:none;margin:6px;font-size:14px}
+button{background:#8b5e3c;color:#fff;border:0;padding:10px 15px;border-radius:7px;margin:4px;cursor:pointer}
 .hero{text-align:center;padding:60px 20px;background:#d9c1a3}
 .hero h2{font-size:35px}
 section{padding:30px 15px;max-width:1000px;margin:auto}
 .menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card,.box{background:white;padding:20px;border-radius:12px;box-shadow:0 3px 10px #0002;text-align:center}
+.card,.box{background:#fff;padding:20px;border-radius:12px;box-shadow:0 3px 10px #0002;text-align:center}
 .price{font-weight:bold;font-size:18px}
 .cart{position:fixed;right:15px;bottom:15px;background:#4b2e1f;color:white;padding:15px;border-radius:50%;z-index:20}
-#cartBox,#paymentBox,#adminPage{display:none;position:fixed;background:white;z-index:50}
+#cartBox,#paymentBox,#adminPage{display:none;position:fixed;background:#fff;z-index:50}
 #cartBox,#paymentBox{right:10px;bottom:75px;width:340px;max-width:92%;padding:20px;border-radius:12px;box-shadow:0 5px 20px #0004}
 input{width:100%;padding:12px;margin:7px 0;border:1px solid #ccc;border-radius:6px}
-form{max-width:500px;margin:auto;background:white;padding:20px;border-radius:12px}
+form{max-width:500px;margin:auto;background:#fff;padding:20px;border-radius:12px}
 #adminPage{top:0;left:0;width:100%;height:100%;overflow:auto;padding:20px;background:#eee}
 table{width:100%;border-collapse:collapse;background:white}
 th,td{padding:8px;border:1px solid #ccc;white-space:nowrap}
-th{background:#4b2e1f;color:white}
+th{background:#4b2e1f;color:#fff}
 .table{overflow:auto}
-footer{background:#4b2e1f;color:white;text-align:center;padding:25px}
+footer{background:#4b2e1f;color:#fff;text-align:center;padding:25px}
 </style>
 </head>
 
@@ -35,6 +36,7 @@ footer{background:#4b2e1f;color:white;text-align:center;padding:25px}
 
 <header>
 <h1>ROMAN</h1>
+
 <nav>
 <a href="#home">Home</a>
 <a href="#menu">Menu</a>
@@ -42,6 +44,7 @@ footer{background:#4b2e1f;color:white;text-align:center;padding:25px}
 <a href="#payment">Payment</a>
 <a href="#contact">Contact</a>
 </nav>
+
 <button onclick="english()">🇬🇧 English</button>
 <button onclick="amharic()">🇪🇹 አማርኛ</button>
 <button onclick="adminLogin()">👨‍💼 Admin Login</button>
@@ -55,19 +58,50 @@ footer{background:#4b2e1f;color:white;text-align:center;padding:25px}
 
 <section id="menu">
 <h2 id="menuTitle">Our Menu</h2>
+
 <div class="menu">
 
-<div class="card"><h3>Classic Burger</h3><p>Fresh beef burger</p><p class="price">250 ETB</p><button onclick="addCart('Classic Burger',250)">Add to Cart</button></div>
+<div class="card">
+<h3>Classic Burger</h3>
+<p>Fresh beef burger</p>
+<p class="price">250 ETB</p>
+<button onclick="addCart('Classic Burger',250)">Add to Cart</button>
+</div>
 
-<div class="card"><h3>Italian Pizza</h3><p>Fresh Italian pizza</p><p class="price">350 ETB</p><button onclick="addCart('Italian Pizza',350)">Add to Cart</button></div>
+<div class="card">
+<h3>Italian Pizza</h3>
+<p>Fresh Italian pizza</p>
+<p class="price">350 ETB</p>
+<button onclick="addCart('Italian Pizza',350)">Add to Cart</button>
+</div>
 
-<div class="card"><h3>Grilled Chicken</h3><p>Special grilled chicken</p><p class="price">450 ETB</p><button onclick="addCart('Grilled Chicken',450)">Add to Cart</button></div>
+<div class="card">
+<h3>Grilled Chicken</h3>
+<p>Special grilled chicken</p>
+<p class="price">450 ETB</p>
+<button onclick="addCart('Grilled Chicken',450)">Add to Cart</button>
+</div>
 
-<div class="card"><h3>Special Pasta</h3><p>Delicious pasta</p><p class="price">300 ETB</p><button onclick="addCart('Special Pasta',300)">Add to Cart</button></div>
+<div class="card">
+<h3>Special Pasta</h3>
+<p>Delicious pasta</p>
+<p class="price">300 ETB</p>
+<button onclick="addCart('Special Pasta',300)">Add to Cart</button>
+</div>
 
-<div class="card"><h3>Special Steak</h3><p>Premium beef steak</p><p class="price">550 ETB</p><button onclick="addCart('Special Steak',550)">Add to Cart</button></div>
+<div class="card">
+<h3>Special Steak</h3>
+<p>Premium beef steak</p>
+<p class="price">550 ETB</p>
+<button onclick="addCart('Special Steak',550)">Add to Cart</button>
+</div>
 
-<div class="card"><h3>Fresh Salad</h3><p>Healthy fresh salad</p><p class="price">200 ETB</p><button onclick="addCart('Fresh Salad',200)">Add to Cart</button></div>
+<div class="card">
+<h3>Fresh Salad</h3>
+<p>Healthy fresh salad</p>
+<p class="price">200 ETB</p>
+<button onclick="addCart('Fresh Salad',200)">Add to Cart</button>
+</div>
 
 </div>
 </section>
@@ -77,48 +111,99 @@ footer{background:#4b2e1f;color:white;text-align:center;padding:25px}
 <div id="cartBox">
 <h2>🛒 Cart</h2>
 <div id="cartItems"></div>
+
 <h3>Total: <span id="total">0</span> ETB</h3>
+
+<button onclick="sendOrder()">📱 Order on WhatsApp</button>
 <button onclick="showPayment()">💳 Payment</button>
 <button onclick="closeCart()">Close</button>
 </div>
 
 <div id="paymentBox">
+
 <h2>💳 Payment</h2>
-<div class="box"><b>📱 Telebirr</b><p>0908888831</p></div>
-<div class="box"><b>📱 CBE Birr</b><p>0908888831</p></div>
-<div class="box"><b>🏦 CBE Bank</b><p>1000243085587</p><p>Estifanos Bechago</p></div>
+
+<div class="box">
+<b>📱 Telebirr</b>
+<p>0908888831</p>
+</div>
+
+<div class="box">
+<b>📱 CBE Birr</b>
+<p>0908888831</p>
+</div>
+
+<div class="box">
+<b>🏦 CBE Bank</b>
+<p>1000243085587</p>
+<p>Estifanos Bechago</p>
+</div>
+
 <h3>Total: <span id="paymentTotal">0</span> ETB</h3>
+
 <button onclick="paid()">✅ I Paid</button>
 <button onclick="closePayment()">Close</button>
+
 </div>
 
 <section id="reserve">
+
 <h2>🪑 Table Reservation</h2>
+
 <form onsubmit="reserve(event)">
+
 <input id="rname" placeholder="Your Name" required>
+
 <input id="rphone" placeholder="Phone Number" required>
+
 <input id="people" type="number" min="1" placeholder="Number of People" required>
+
 <input id="date" type="date" required>
+
 <input id="time" type="time" required>
+
 <button type="submit">Reserve Table</button>
+
 </form>
+
 </section>
 
 <section id="payment">
+
 <h2>💳 Payment Methods</h2>
-<div class="box"><b>Telebirr</b><p>0908888831</p></div>
-<div class="box"><b>CBE Birr</b><p>0908888831</p></div>
-<div class="box"><b>CBE Bank</b><p>1000243085587</p><p>Estifanos Bechago</p></div>
+
+<div class="box">
+<b>Telebirr</b>
+<p>0908888831</p>
+</div>
+
+<div class="box">
+<b>CBE Birr</b>
+<p>0908888831</p>
+</div>
+
+<div class="box">
+<b>CBE Bank</b>
+<p>1000243085587</p>
+<p>Account Name: Estifanos Bechago</p>
+</div>
+
 </section>
 
 <section id="contact">
+
 <h2>📍 Contact</h2>
+
 <p>📞 +251 908 888 831</p>
 <p>📍 Ethiopia</p>
+<p>🕐 8:00 AM - 10:00 PM</p>
+
 </section>
 
 <div id="adminPage">
+
 <h2>👨‍💼 ROMAN Admin Dashboard</h2>
+
 <button onclick="loadAdmin()">🔄 Refresh</button>
 <button onclick="logoutAdmin()">🚪 Logout</button>
 
@@ -129,106 +214,347 @@ footer{background:#4b2e1f;color:white;text-align:center;padding:25px}
 </div>
 
 <div class="table">
+
 <table>
+
 <thead>
 <tr>
-<th>Date</th><th>Type</th><th>Name</th><th>Phone</th>
-<th>Items</th><th>People</th><th>Date</th><th>Time</th><th>Total</th>
+<th>Date</th>
+<th>Type</th>
+<th>Name</th>
+<th>Phone</th>
+<th>Items</th>
+<th>People</th>
+<th>Reservation Date</th>
+<th>Time</th>
+<th>Total</th>
 </tr>
 </thead>
+
 <tbody id="adminData"></tbody>
+
 </table>
-</div>
+
 </div>
 
-<footer>© 2026 ROMAN Restaurant</footer>
+</div>
+
+<footer>
+<p>© 2026 ROMAN Restaurant</p>
+<p>Delicious food. Beautiful moments.</p>
+</footer>
 
 <script>
+
 const API="https://script.google.com/macros/s/AKfycbwcdcMosnktzsuZc_frZbWf4tUnWFnv3A6G3jKi2Nj7Emuq3QDd_VY0LoEcfkwZVMI/exec";
+
 let cart=[];
 
-function addCart(n,p){cart.push({name:n,price:p});alert(n+" added to cart")}
-function openCart(){document.getElementById("cartBox").style.display="block";showCart()}
-function closeCart(){document.getElementById("cartBox").style.display="none"}
+function addCart(name,price){
+cart.push({name:name,price:price});
+alert(name+" added to cart");
+}
+
+function openCart(){
+document.getElementById("cartBox").style.display="block";
+showCart();
+}
+
+function closeCart(){
+document.getElementById("cartBox").style.display="none";
+}
 
 function showCart(){
-let h="",t=0;
-cart.forEach((x,i)=>{h+=`<p>${x.name} - ${x.price} ETB <button onclick="removeCart(${i})">❌</button></p>`;t+=x.price});
-document.getElementById("cartItems").innerHTML=h;
-document.getElementById("total").innerText=t;
+
+let html="";
+let total=0;
+
+cart.forEach((item,i)=>{
+
+html+=`
+<p>
+${item.name} - ${item.price} ETB
+<button onclick="removeCart(${i})">❌</button>
+</p>
+`;
+
+total+=item.price;
+
+});
+
+document.getElementById("cartItems").innerHTML=html;
+document.getElementById("total").innerText=total;
+
 }
 
-function removeCart(i){cart.splice(i,1);showCart()}
+function removeCart(i){
+
+cart.splice(i,1);
+showCart();
+
+}
+
+function sendOrder(){
+
+if(cart.length===0){
+
+alert("Cart is empty");
+return;
+
+}
+
+let total=cart.reduce((sum,item)=>sum+item.price,0);
+
+let items=cart.map(item=>item.name).join(", ");
+
+fetch(API,{
+method:"POST",
+body:JSON.stringify({
+
+type:"ORDER",
+name:"WhatsApp Customer",
+phone:"",
+items:items,
+people:"",
+date:"",
+time:"",
+total:total
+
+})
+});
+
+let message="ROMAN Restaurant Order%0A%0A";
+
+cart.forEach(item=>{
+
+message+="• "+item.name+" - "+item.price+" ETB%0A";
+
+});
+
+message+="%0ATotal: "+total+" ETB";
+
+window.open(
+"https://wa.me/251908888831?text="+message,
+"_blank"
+);
+
+}
 
 function showPayment(){
-if(!cart.length){alert("Cart is empty");return}
-let t=cart.reduce((a,x)=>a+x.price,0);
-document.getElementById("paymentTotal").innerText=t;
-document.getElementById("paymentBox").style.display="block";
+
+if(cart.length===0){
+
+alert("Cart is empty");
+return;
+
 }
 
-function closePayment(){document.getElementById("paymentBox").style.display="none"}
+let total=cart.reduce((sum,item)=>sum+item.price,0);
+
+document.getElementById("paymentTotal").innerText=total;
+
+document.getElementById("paymentBox").style.display="block";
+
+}
+
+function closePayment(){
+
+document.getElementById("paymentBox").style.display="none";
+
+}
 
 function paid(){
-let t=cart.reduce((a,x)=>a+x.price,0);
-let m="ROMAN Restaurant Payment%0A%0AAmount: "+t+" ETB%0AStatus: I Paid";
-window.open("https://wa.me/251908888831?text="+m,"_blank");
+
+let total=cart.reduce((sum,item)=>sum+item.price,0);
+
+let items=cart.map(item=>item.name).join(", ");
+
+fetch(API,{
+method:"POST",
+body:JSON.stringify({
+
+type:"PAYMENT",
+name:"WhatsApp Customer",
+phone:"",
+items:items,
+total:total
+
+})
+});
+
+let message=
+"ROMAN Restaurant Payment%0A%0A"+
+"Amount: "+total+" ETB%0A"+
+"Status: I Paid";
+
+window.open(
+"https://wa.me/251908888831?text="+message,
+"_blank"
+);
+
 }
 
 function reserve(e){
+
 e.preventDefault();
-let n=rname.value,p=rphone.value,pe=people.value,d=date.value,ti=time.value;
-fetch(API,{method:"POST",body:JSON.stringify({type:"RESERVATION",name:n,phone:p,people:pe,date:d,time:ti})});
-let m="ROMAN Reservation%0A%0AName: "+n+"%0APhone: "+p+"%0APeople: "+pe+"%0ADate: "+d+"%0ATime: "+ti;
-window.open("https://wa.me/251908888831?text="+m,"_blank");
+
+let name=document.getElementById("rname").value;
+let phone=document.getElementById("rphone").value;
+let people=document.getElementById("people").value;
+let date=document.getElementById("date").value;
+let time=document.getElementById("time").value;
+
+fetch(API,{
+method:"POST",
+body:JSON.stringify({
+
+type:"RESERVATION",
+name:name,
+phone:phone,
+people:people,
+date:date,
+time:time,
+items:"",
+total:""
+
+})
+});
+
+let message=
+"ROMAN Table Reservation%0A%0A"+
+"Name: "+name+"%0A"+
+"Phone: "+phone+"%0A"+
+"People: "+people+"%0A"+
+"Date: "+date+"%0A"+
+"Time: "+time;
+
+window.open(
+"https://wa.me/251908888831?text="+message,
+"_blank"
+);
+
 }
 
 function english(){
-welcome.innerText="Welcome to ROMAN Restaurant";
-heroText.innerText="Delicious food, beautiful moments.";
-menuTitle.innerText="Our Menu";
+
+document.getElementById("welcome").innerText=
+"Welcome to ROMAN Restaurant";
+
+document.getElementById("heroText").innerText=
+"Delicious food, beautiful moments.";
+
+document.getElementById("menuTitle").innerText=
+"Our Menu";
+
 }
 
 function amharic(){
-welcome.innerText="እንኳን ወደ ROMAN Restaurant በደህና መጡ";
-heroText.innerText="ጣፋጭ ምግብ፣ የማይረሱ ጊዜያት።";
-menuTitle.innerText="የምግብ ዝርዝር";
+
+document.getElementById("welcome").innerText=
+"እንኳን ወደ ROMAN Restaurant በደህና መጡ";
+
+document.getElementById("heroText").innerText=
+"ጣፋጭ ምግብ፣ የማይረሱ ጊዜያት።";
+
+document.getElementById("menuTitle").innerText=
+"የምግብ ዝርዝር";
+
 }
 
 function adminLogin(){
-let p=prompt("Admin Password:");
-if(p==="roman123"){
+
+let password=prompt("Admin Password:");
+
+if(password==="roman123"){
+
 document.getElementById("adminPage").style.display="block";
+
 loadAdmin();
-}else alert("Wrong password ❌");
+
+}else{
+
+alert("Wrong password ❌");
+
+}
+
 }
 
 function logoutAdmin(){
+
 document.getElementById("adminPage").style.display="none";
+
 }
 
 function loadAdmin(){
+
 fetch(API)
-.then(r=>r.json())
+
+.then(response=>response.json())
+
 .then(data=>{
-let o=0,r=0,s=0,h="";
-data.forEach((x,i)=>{
-if(i===0)return;
-if(x[1]==="ORDER"){o++;s+=Number(x[8])||0}
-if(x[1]==="RESERVATION")r++;
-h+=`<tr>
-<td>${x[0]||""}</td><td>${x[1]||""}</td><td>${x[2]||""}</td>
-<td>${x[3]||""}</td><td>${x[4]||""}</td><td>${x[5]||""}</td>
-<td>${x[6]||""}</td><td>${x[7]||""}</td><td>${x[8]||""}</td>
-</tr>`;
-});
-adminData.innerHTML=h||"<tr><td colspan='9'>No data</td></tr>";
-orderCount.innerText=o;
-reservationCount.innerText=r;
-salesTotal.innerText=s;
-})
-.catch(()=>adminData.innerHTML="<tr><td colspan='9'>Unable to load data</td></tr>");
+
+let orders=0;
+let reservations=0;
+let sales=0;
+let html="";
+
+data.forEach((row,index)=>{
+
+if(index===0)return;
+
+if(row[1]==="ORDER"){
+
+orders++;
+sales+=Number(row[8])||0;
+
 }
+
+if(row[1]==="RESERVATION"){
+
+reservations++;
+
+}
+
+html+=`
+
+<tr>
+
+<td>${row[0]||""}</td>
+<td>${row[1]||""}</td>
+<td>${row[2]||""}</td>
+<td>${row[3]||""}</td>
+<td>${row[4]||""}</td>
+<td>${row[5]||""}</td>
+<td>${row[6]||""}</td>
+<td>${row[7]||""}</td>
+<td>${row[8]||""}</td>
+
+</tr>
+
+`;
+
+});
+
+document.getElementById("adminData").innerHTML=
+html||"<tr><td colspan='9'>No data yet</td></tr>";
+
+document.getElementById("orderCount").innerText=orders;
+
+document.getElementById("reservationCount").innerText=reservations;
+
+document.getElementById("salesTotal").innerText=sales;
+
+})
+
+.catch(()=>{
+
+document.getElementById("adminData").innerHTML=
+"<tr><td colspan='9'>Unable to load data</td></tr>";
+
+});
+
+}
+
 </script>
 
 </body>

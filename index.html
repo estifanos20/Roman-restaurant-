@@ -2,575 +2,805 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ROMAN Restaurant</title>
 
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:#f8f0e3;color:#3e2415}
-header{background:#4b2e1f;color:#fff;padding:15px;text-align:center;position:sticky;top:0;z-index:10}
-header h1{margin:0;font-size:30px}
-nav{margin:10px}
-nav a{color:#fff;text-decoration:none;margin:6px;font-size:14px}
-button{background:#8b5e3c;color:#fff;border:0;padding:10px 15px;border-radius:7px;margin:4px;cursor:pointer}
-.hero{text-align:center;padding:60px 20px;background:#d9c1a3}
-.hero h2{font-size:35px}
-section{padding:30px 15px;max-width:1000px;margin:auto}
-.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card,.box{background:#fff;padding:15px;border-radius:12px;box-shadow:0 3px 10px #0002;text-align:center}
-.card img{width:100%;height:180px;object-fit:cover;border-radius:10px}
-.price{font-weight:bold;font-size:18px}
-.cart{position:fixed;right:15px;bottom:15px;background:#4b2e1f;color:white;padding:15px;border-radius:50%;z-index:20}
-#cartBox,#paymentBox,#adminPage{display:none;position:fixed;background:#fff;z-index:50}
-#cartBox,#paymentBox{right:10px;bottom:75px;width:340px;max-width:92%;padding:20px;border-radius:12px;box-shadow:0 5px 20px #0004}
-input{width:100%;padding:12px;margin:7px 0;border:1px solid #ccc;border-radius:6px}
-form{max-width:500px;margin:auto;background:#fff;padding:20px;border-radius:12px}
-#adminPage{top:0;left:0;width:100%;height:100%;overflow:auto;padding:20px;background:#eee}
-table{width:100%;border-collapse:collapse;background:white}
-th,td{padding:8px;border:1px solid #ccc;white-space:nowrap}
-th{background:#4b2e1f;color:#fff}
-.table{overflow:auto}
-footer{background:#4b2e1f;color:#fff;text-align:center;padding:25px}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#f7efe2;
+  color:#3b2418;
+}
+
+header{
+  background:#3b2418;
+  color:white;
+  padding:18px;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+header h1{
+  font-size:30px;
+  letter-spacing:3px;
+}
+
+header p{
+  margin-top:5px;
+  color:#f3d7ad;
+}
+
+nav{
+  margin-top:12px;
+}
+
+nav button{
+  border:none;
+  background:#d9a441;
+  color:#3b2418;
+  padding:9px 14px;
+  border-radius:20px;
+  margin:3px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.hero{
+  min-height:300px;
+  padding:70px 20px;
+  text-align:center;
+  background:linear-gradient(#0008,#0008),
+  url("Kitfo.jpg") center/cover;
+  color:white;
+}
+
+.hero h2{
+  font-size:42px;
+  margin-bottom:12px;
+}
+
+.hero p{
+  font-size:18px;
+}
+
+section{
+  padding:35px 15px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.title h2{
+  font-size:30px;
+  color:#5b321d;
+}
+
+.menu{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 4px 12px #0002;
+}
+
+.card img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:15px;
+}
+
+.card h3{
+  font-size:21px;
+  margin-bottom:8px;
+}
+
+.price{
+  color:#a45d16;
+  font-weight:bold;
+  margin-bottom:12px;
+}
+
+.card button,
+.submit-btn{
+  width:100%;
+  border:none;
+  background:#5b321d;
+  color:white;
+  padding:12px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.card button:hover,
+.submit-btn:hover{
+  background:#8a512d;
+}
+
+.box{
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 4px 12px #0002;
+  margin-top:20px;
+}
+
+input,select{
+  width:100%;
+  padding:12px;
+  margin:7px 0;
+  border:1px solid #ccc;
+  border-radius:7px;
+}
+
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 0;
+  border-bottom:1px solid #ddd;
+}
+
+.total{
+  font-size:21px;
+  font-weight:bold;
+  margin:15px 0;
+}
+
+.payment{
+  line-height:2;
+}
+
+.payment strong{
+  color:#5b321d;
+}
+
+footer{
+  background:#3b2418;
+  color:white;
+  text-align:center;
+  padding:25px;
+  margin-top:30px;
+}
+
+.whatsapp{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  background:#25D366;
+  color:white;
+  padding:13px;
+  border-radius:8px;
+  margin-top:10px;
+  font-weight:bold;
+}
+
+.hidden{
+  display:none;
+}
+
+.admin-table{
+  width:100%;
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:700px;
+}
+
+th,td{
+  border:1px solid #ddd;
+  padding:9px;
+  text-align:left;
+}
+
+th{
+  background:#5b321d;
+  color:white;
+}
+
+@media(max-width:600px){
+  .hero h2{
+    font-size:32px;
+  }
+
+  section{
+    padding:25px 12px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>ROMAN</h1>
+  <h1>ROMAN</h1>
+  <p>Traditional Ethiopian Restaurant</p>
 
-<nav>
-<a href="#home">Home</a>
-<a href="#menu">Menu</a>
-<a href="#reserve">Reservation</a>
-<a href="#payment">Payment</a>
-<a href="#contact">Contact</a>
-</nav>
-
-<button onclick="english()">🇬🇧 English</button>
-<button onclick="amharic()">🇪🇹 አማርኛ</button>
-<button onclick="adminLogin()">👨‍💼 Admin Login</button>
+  <nav>
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('am')">አማርኛ</button>
+    <button onclick="showSection('menuSection')">Menu</button>
+    <button onclick="showSection('reservationSection')">Reservation</button>
+    <button onclick="showSection('paymentSection')">Payment</button>
+    <button onclick="showSection('adminSection')">Admin</button>
+  </nav>
 </header>
 
-<section class="hero" id="home">
-<h2 id="welcome">Welcome to ROMAN Restaurant</h2>
-<p id="heroText">Delicious Ethiopian food, beautiful moments.</p>
-<button onclick="document.getElementById('menu').scrollIntoView()">View Menu</button>
+<div class="hero">
+  <h2 id="heroTitle">Welcome to ROMAN</h2>
+  <p id="heroText">Authentic Ethiopian taste, prepared with love.</p>
+</div>
+
+<!-- MENU -->
+<section id="menuSection">
+  <div class="title">
+    <h2 id="menuTitle">Our Ethiopian Menu</h2>
+  </div>
+
+  <div class="menu">
+
+    <div class="card">
+      <img src="Kitfo.jpg" alt="ክትፎ">
+      <div class="card-content">
+        <h3>ክትፎ</h3>
+        <p class="price">1,500 ETB</p>
+        <button onclick="addToCart('ክትፎ',1500)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="Kurtsga.jpg" alt="ጥሬ ስጋ">
+      <div class="card-content">
+        <h3>ጥሬ ስጋ</h3>
+        <p class="price">2,500 ETB / 1kg</p>
+        <button onclick="addToCart('ጥሬ ስጋ',2500)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="height:170px;background:#ead7bd;display:flex;align-items:center;justify-content:center;font-size:55px;">
+        🍗
+      </div>
+      <div class="card-content">
+        <h3>ዶሮ ወጥ</h3>
+        <p class="price">800 ETB</p>
+        <button onclick="addToCart('ዶሮ ወጥ',800)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="Tibs.jpg" alt="ጥብስ">
+      <div class="card-content">
+        <h3>ጥብስ</h3>
+        <p class="price">2,000 ETB / 1kg</p>
+        <button onclick="addToCart('ጥብስ',2000)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="Shiro.jpg" alt="ሽሮ">
+      <div class="card-content">
+        <h3>ሽሮ</h3>
+        <p class="price">250 ETB</p>
+        <button onclick="addToCart('ሽሮ',250)">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- FIXED: Frfr.jpg -->
+    <div class="card">
+      <img src="Frfr.jpg" alt="ፍርፍር">
+      <div class="card-content">
+        <h3>ፍርፍር</h3>
+        <p class="price">250 ETB</p>
+        <button onclick="addToCart('ፍርፍር',250)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="Kikil.jpg" alt="ቅቅል">
+      <div class="card-content">
+        <h3>ቅቅል</h3>
+        <p class="price">500 ETB</p>
+        <button onclick="addToCart('ቅቅል',500)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="Chukame.jpg" alt="ጩካሜ">
+      <div class="card-content">
+        <h3>ጩካሜ</h3>
+        <p class="price">700 ETB</p>
+        <button onclick="addToCart('ጩካሜ',700)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="Chororsa.jpg" alt="ጮርጮርሳ">
+      <div class="card-content">
+        <h3>ጮርጮርሳ</h3>
+        <p class="price">650 ETB</p>
+        <button onclick="addToCart('ጮርጮርሳ',650)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="Tihilo.jpg" alt="ጥህሎ">
+      <div class="card-content">
+        <h3>ጥህሎ</h3>
+        <p class="price">550 ETB</p>
+        <button onclick="addToCart('ጥህሎ',550)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="Beyaynet.jpg" alt="በያይነት">
+      <div class="card-content">
+        <h3>በያይነት</h3>
+        <p class="price">300 ETB</p>
+        <button onclick="addToCart('በያይነት',300)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="Coffee.jpg" alt="ቡና">
+      <div class="card-content">
+        <h3>ቡና</h3>
+        <p class="price">50 ETB</p>
+        <button onclick="addToCart('ቡና',50)">Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<section id="menu">
+<!-- CART -->
+<section>
+  <div class="title">
+    <h2>🛒 Cart</h2>
+  </div>
 
-<h2 id="menuTitle">Our Menu</h2>
+  <div class="box">
+    <div id="cartItems">
+      <p>Your cart is empty.</p>
+    </div>
 
-<div class="menu">
+    <div class="total">
+      Total: <span id="cartTotal">0</span> ETB
+    </div>
 
-<div class="card">
-<img src="Kitfo.jpg">
-<h3>ክትፎ</h3>
-<p>Traditional Ethiopian Kitfo</p>
-<p class="price">1,500 ETB</p>
-<button onclick="addCart('ክትፎ',1500)">Add to Cart</button>
-</div>
+    <input id="orderName" placeholder="Your Name">
+    <input id="orderPhone" placeholder="Phone Number">
 
-<div class="card">
-<img src="Kurtsga.jpg">
-<h3>ጥሬ ስጋ</h3>
-<p>Fresh raw beef</p>
-<p class="price">2,500 ETB / 1kg</p>
-<button onclick="addCart('ጥሬ ስጋ',2500)">Add to Cart</button>
-</div>
-
-<div class="card">
-<h3>ዶሮ ወጥ</h3>
-<p>Traditional Ethiopian chicken stew</p>
-<p class="price">800 ETB</p>
-<button onclick="addCart('ዶሮ ወጥ',800)">Add to Cart</button>
-</div>
-
-<div class="card">
-<img src="Tibs.jpg">
-<h3>ጥብስ</h3>
-<p>Special Ethiopian Tibs</p>
-<p class="price">2,000 ETB / 1kg</p>
-<button onclick="addCart('ጥብስ',2000)">Add to Cart</button>
-</div>
-
-<div class="card">
-<img src="Shiro.jpg">
-<h3>ሽሮ</h3>
-<p>Traditional Shiro</p>
-<p class="price">250 ETB</p>
-<button onclick="addCart('ሽሮ',250)">Add to Cart</button>
-</div>
-
-<div class="card">
-<img src="Frfr.jpg">
-<h3>ፍርፍር</h3>
-<p>Traditional Firfir</p>
-<p class="price">250 ETB</p>
-<button onclick="addCart('ፍርፍር',250)">Add to Cart</button>
-</div>
-
-<div class="card">
-<img src="Kikil.jpg">
-<h3>ቅቅል</h3>
-<p>Traditional Ethiopian Kikil</p>
-<p class="price">500 ETB</p>
-<button onclick="addCart('ቅቅል',500)">Add to Cart</button>
-</div>
-
-<div class="card">
-<img src="Chukame.jpg">
-<h3>ጩካሜ</h3>
-<p>Special Ethiopian food</p>
-<p class="price">700 ETB</p>
-<button onclick="addCart('ጩካሜ',700)">Add to Cart</button>
-</div>
-
-<div class="card">
-<img src="Chororsa.jpg">
-<h3>ጮርጮርሳ</h3>
-<p>Traditional Ethiopian food</p>
-<p class="price">650 ETB</p>
-<button onclick="addCart('ጮርጮርሳ',650)">Add to Cart</button>
-</div>
-
-<div class="card">
-<img src="Tihilo.jpg">
-<h3>ጥህሎ</h3>
-<p>Traditional Ethiopian Tihilo</p>
-<p class="price">550 ETB</p>
-<button onclick="addCart('ጥህሎ',550)">Add to Cart</button>
-</div>
-
-<div class="card">
-<img src="Beyaynet.jpg">
-<h3>በያይነት</h3>
-<p>Mixed Ethiopian platter</p>
-<p class="price">300 ETB</p>
-<button onclick="addCart('በያይነት',300)">Add to Cart</button>
-</div>
-
-<div class="card">
-<img src="Coffee.jpg">
-<h3>ቡና</h3>
-<p>Ethiopian Traditional Coffee</p>
-<p class="price">50 ETB</p>
-<button onclick="addCart('ቡና',50)">Add to Cart</button>
-</div>
-
-</div>
+    <button class="submit-btn" onclick="sendOrder()">
+      Order via WhatsApp
+    </button>
+  </div>
 </section>
 
-<div class="cart" onclick="openCart()">🛒</div>
+<!-- RESERVATION -->
+<section id="reservationSection">
+  <div class="title">
+    <h2>🍽️ Table Reservation</h2>
+  </div>
 
-<div id="cartBox">
-<h2>🛒 Cart</h2>
-<div id="cartItems"></div>
-<h3>Total: <span id="total">0</span> ETB</h3>
-<button onclick="sendOrder()">📱 Order on WhatsApp</button>
-<button onclick="showPayment()">💳 Payment</button>
-<button onclick="closeCart()">Close</button>
-</div>
+  <div class="box">
+    <input id="resName" placeholder="Full Name">
+    <input id="resPhone" placeholder="Phone Number">
 
-<div id="paymentBox">
+    <input id="resPeople" type="number" placeholder="Number of People">
 
-<h2>💳 Payment</h2>
+    <input id="resDate" type="date">
+    <input id="resTime" type="time">
 
-<div class="box">
-<b>📱 Telebirr</b>
-<p>0908888831</p>
-</div>
-
-<div class="box">
-<b>📱 CBE Birr</b>
-<p>0908888831</p>
-</div>
-
-<div class="box">
-<b>🏦 CBE Bank</b>
-<p>1000243085587</p>
-<p>Estifanos Bechago</p>
-</div>
-
-<h3>Total: <span id="paymentTotal">0</span> ETB</h3>
-
-<button onclick="paid()">✅ I Paid</button>
-<button onclick="closePayment()">Close</button>
-
-</div>
-
-<section id="reserve">
-
-<h2>🪑 Table Reservation</h2>
-
-<form onsubmit="reserve(event)">
-
-<input id="rname" placeholder="Your Name" required>
-<input id="rphone" placeholder="Phone Number" required>
-<input id="people" type="number" min="1" placeholder="Number of People" required>
-<input id="date" type="date" required>
-<input id="time" type="time" required>
-
-<button type="submit">Reserve Table</button>
-
-</form>
+    <button class="submit-btn" onclick="reserveTable()">
+      Reserve Table
+    </button>
+  </div>
 </section>
 
-<section id="payment">
+<!-- PAYMENT -->
+<section id="paymentSection">
+  <div class="title">
+    <h2>💳 Payment</h2>
+  </div>
 
-<h2>💳 Payment Methods</h2>
+  <div class="box payment">
+    <p><strong>Telebirr:</strong> 0908888831</p>
+    <p><strong>CBE Birr:</strong> 0908888831</p>
+    <p><strong>CBE Bank:</strong> 1000243085587</p>
+    <p><strong>Account Name:</strong> Estifanos Bechago</p>
 
-<div class="box">
-<b>Telebirr</b>
-<p>0908888831</p>
-</div>
+    <hr style="margin:15px 0">
 
-<div class="box">
-<b>CBE Birr</b>
-<p>0908888831</p>
-</div>
+    <input id="paidName" placeholder="Your Name">
+    <input id="paidPhone" placeholder="Phone Number">
+    <input id="paidAmount" type="number" placeholder="Paid Amount">
 
-<div class="box">
-<b>CBE Bank</b>
-<p>1000243085587</p>
-<p>Account Name: Estifanos Bechago</p>
-</div>
-
+    <button class="submit-btn" onclick="paidConfirmation()">
+      I Paid
+    </button>
+  </div>
 </section>
 
-<section id="contact">
+<!-- ADMIN -->
+<section id="adminSection">
+  <div class="title">
+    <h2>🔐 Admin Dashboard</h2>
+  </div>
 
-<h2>📍 Contact</h2>
-<p>📞 +251 908 888 831</p>
-<p>📍 Ethiopia</p>
-<p>🕐 8:00 AM - 10:00 PM</p>
+  <div class="box" id="adminLogin">
+    <input id="adminPassword" type="password" placeholder="Admin Password">
+    <button class="submit-btn" onclick="adminLogin()">Login</button>
+  </div>
 
+  <div class="box hidden" id="dashboard">
+    <h2>ROMAN Orders Dashboard</h2>
+    <br>
+
+    <button class="submit-btn" onclick="loadOrders()">
+      Refresh Orders
+    </button>
+
+    <br><br>
+
+    <div class="admin-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Items</th>
+            <th>People</th>
+            <th>Reservation Date</th>
+            <th>Time</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+
+        <tbody id="ordersTable">
+        </tbody>
+      </table>
+    </div>
+  </div>
 </section>
-
-<div id="adminPage">
-
-<h2>👨‍💼 ROMAN Admin Dashboard</h2>
-
-<button onclick="loadAdmin()">🔄 Refresh</button>
-<button onclick="logoutAdmin()">🚪 Logout</button>
-
-<div class="box">
-<h3>Orders: <span id="orderCount">0</span></h3>
-<h3>Reservations: <span id="reservationCount">0</span></h3>
-<h3>Sales: <span id="salesTotal">0</span> ETB</h3>
-</div>
-
-<div class="table">
-
-<table>
-
-<thead>
-<tr>
-<th>Date</th>
-<th>Type</th>
-<th>Name</th>
-<th>Phone</th>
-<th>Items</th>
-<th>People</th>
-<th>Reservation Date</th>
-<th>Time</th>
-<th>Total</th>
-</tr>
-</thead>
-
-<tbody id="adminData"></tbody>
-
-</table>
-
-</div>
-</div>
 
 <footer>
-<p>© 2026 ROMAN Restaurant</p>
-<p>Delicious Ethiopian food. Beautiful moments.</p>
+  <h2>ROMAN Restaurant</h2>
+  <p>Authentic Ethiopian Food 🇪🇹</p>
+
+  <a class="whatsapp"
+     href="https://wa.me/251908888831"
+     target="_blank">
+    WhatsApp: 0908888831
+  </a>
+
+  <br>
+  <p>© 2026 ROMAN Restaurant</p>
 </footer>
 
 <script>
 
-const API="https://script.google.com/macros/s/AKfycbwcdcMosnktzsuZc_frZbWf4tUnWFnv3A6G3jKi2Nj7Emuq3QDd_VY0LoEcfkwZVMI/exec";
+const API_URL =
+"https://script.google.com/macros/s/AKfycbwcdcMosnktzsuZc_frZbWf4tUnWFnv3A6G3jKi2Nj7Emuq3QDd_VY0LoEcfkwZVMI/exec";
 
-let cart=[];
+const WHATSAPP = "251908888831";
 
-function addCart(name,price){
-cart.push({name:name,price:price});
-alert(name+" added to cart");
+let cart = [];
+
+function showSection(id){
+  document.getElementById(id).scrollIntoView({
+    behavior:"smooth"
+  });
 }
 
-function openCart(){
-document.getElementById("cartBox").style.display="block";
-showCart();
+function setLanguage(lang){
+
+  if(lang === "am"){
+    document.getElementById("heroTitle").innerText =
+      "እንኳን ወደ ROMAN በደህና መጡ";
+
+    document.getElementById("heroText").innerText =
+      "የኢትዮጵያን ባህላዊ ጣዕም በፍቅር እናቀርባለን";
+
+    document.getElementById("menuTitle").innerText =
+      "የኢትዮጵያ ምግቦች";
+  }else{
+
+    document.getElementById("heroTitle").innerText =
+      "Welcome to ROMAN";
+
+    document.getElementById("heroText").innerText =
+      "Authentic Ethiopian taste, prepared with love.";
+
+    document.getElementById("menuTitle").innerText =
+      "Our Ethiopian Menu";
+  }
 }
 
-function closeCart(){
-document.getElementById("cartBox").style.display="none";
+function addToCart(name,price){
+
+  cart.push({
+    name:name,
+    price:price
+  });
+
+  updateCart();
+
+  alert(name + " added to cart");
 }
 
-function showCart(){
+function updateCart(){
 
-let html="";
-let total=0;
+  const box = document.getElementById("cartItems");
 
-cart.forEach((item,i)=>{
+  if(cart.length === 0){
+    box.innerHTML = "<p>Your cart is empty.</p>";
+    document.getElementById("cartTotal").innerText = "0";
+    return;
+  }
 
-html+=`
-<p>
-${item.name} - ${item.price} ETB
-<button onclick="removeCart(${i})">❌</button>
-</p>
-`;
+  let total = 0;
 
-total+=item.price;
+  box.innerHTML = "";
 
-});
+  cart.forEach((item,index)=>{
 
-document.getElementById("cartItems").innerHTML=html;
-document.getElementById("total").innerText=total;
+    total += item.price;
 
+    box.innerHTML += `
+      <div class="cart-item">
+        <span>${item.name}</span>
+        <span>${item.price} ETB
+        <button onclick="removeItem(${index})"
+        style="margin-left:8px;border:none;background:#b33;color:white;border-radius:5px;padding:4px 7px;">
+        X
+        </button>
+        </span>
+      </div>
+    `;
+  });
+
+  document.getElementById("cartTotal").innerText =
+    total.toLocaleString();
 }
 
-function removeCart(i){
-cart.splice(i,1);
-showCart();
+function removeItem(index){
+
+  cart.splice(index,1);
+
+  updateCart();
 }
 
 function sendOrder(){
 
-if(cart.length===0){
-alert("Cart is empty");
-return;
+  if(cart.length === 0){
+    alert("Please add food to your cart.");
+    return;
+  }
+
+  const name =
+    document.getElementById("orderName").value;
+
+  const phone =
+    document.getElementById("orderPhone").value;
+
+  if(!name || !phone){
+    alert("Please enter your name and phone.");
+    return;
+  }
+
+  let total = 0;
+
+  let items = cart.map(item=>{
+    total += item.price;
+    return item.name + " - " + item.price + " ETB";
+  }).join(", ");
+
+  const message =
+    "ROMAN RESTAURANT ORDER%0A%0A" +
+    "Name: " + encodeURIComponent(name) +
+    "%0APhone: " + encodeURIComponent(phone) +
+    "%0AItems: " + encodeURIComponent(items) +
+    "%0ATotal: " + total + " ETB";
+
+  fetch(API_URL,{
+    method:"POST",
+    body:JSON.stringify({
+      type:"ORDER",
+      name:name,
+      phone:phone,
+      items:items,
+      total:total
+    })
+  }).catch(()=>{});
+
+  window.open(
+    "https://wa.me/" + WHATSAPP + "?text=" + message,
+    "_blank"
+  );
 }
 
-let total=cart.reduce((sum,item)=>sum+item.price,0);
-let items=cart.map(item=>item.name).join(", ");
+function reserveTable(){
 
-fetch(API,{
-method:"POST",
-body:JSON.stringify({
-type:"ORDER",
-name:"WhatsApp Customer",
-phone:"",
-items:items,
-people:"",
-date:"",
-time:"",
-total:total
-})
-});
+  const name =
+    document.getElementById("resName").value;
 
-let message="ROMAN Restaurant Order%0A%0A";
+  const phone =
+    document.getElementById("resPhone").value;
 
-cart.forEach(item=>{
-message+="• "+item.name+" - "+item.price+" ETB%0A";
-});
+  const people =
+    document.getElementById("resPeople").value;
 
-message+="%0ATotal: "+total+" ETB";
+  const date =
+    document.getElementById("resDate").value;
 
-window.open(
-"https://wa.me/251908888831?text="+message,
-"_blank"
-);
+  const time =
+    document.getElementById("resTime").value;
 
+  if(!name || !phone || !people || !date || !time){
+    alert("Please fill all reservation information.");
+    return;
+  }
+
+  fetch(API_URL,{
+    method:"POST",
+    body:JSON.stringify({
+      type:"RESERVATION",
+      name:name,
+      phone:phone,
+      people:people,
+      date:date,
+      time:time
+    })
+  }).catch(()=>{});
+
+  const message =
+    "ROMAN TABLE RESERVATION%0A%0A" +
+    "Name: " + encodeURIComponent(name) +
+    "%0APhone: " + encodeURIComponent(phone) +
+    "%0APeople: " + people +
+    "%0ADate: " + date +
+    "%0ATime: " + time;
+
+  window.open(
+    "https://wa.me/" + WHATSAPP + "?text=" + message,
+    "_blank"
+  );
+
+  alert("Reservation sent successfully!");
 }
 
-function showPayment(){
+function paidConfirmation(){
 
-if(cart.length===0){
-alert("Cart is empty");
-return;
-}
+  const name =
+    document.getElementById("paidName").value;
 
-let total=cart.reduce((sum,item)=>sum+item.price,0);
+  const phone =
+    document.getElementById("paidPhone").value;
 
-document.getElementById("paymentTotal").innerText=total;
-document.getElementById("paymentBox").style.display="block";
+  const amount =
+    document.getElementById("paidAmount").value;
 
-}
+  if(!name || !phone || !amount){
+    alert("Please fill all payment information.");
+    return;
+  }
 
-function closePayment(){
-document.getElementById("paymentBox").style.display="none";
-}
+  fetch(API_URL,{
+    method:"POST",
+    body:JSON.stringify({
+      type:"PAYMENT",
+      name:name,
+      phone:phone,
+      total:amount
+    })
+  }).catch(()=>{});
 
-function paid(){
+  const message =
+    "ROMAN PAYMENT CONFIRMATION%0A%0A" +
+    "Name: " + encodeURIComponent(name) +
+    "%0APhone: " + encodeURIComponent(phone) +
+    "%0APaid Amount: " + amount + " ETB";
 
-let total=cart.reduce((sum,item)=>sum+item.price,0);
-let items=cart.map(item=>item.name).join(", ");
+  window.open(
+    "https://wa.me/" + WHATSAPP + "?text=" + message,
+    "_blank"
+  );
 
-fetch(API,{
-method:"POST",
-body:JSON.stringify({
-type:"PAYMENT",
-name:"WhatsApp Customer",
-phone:"",
-items:items,
-total:total
-})
-});
-
-let message=
-"ROMAN Restaurant Payment%0A%0A"+
-"Amount: "+total+" ETB%0A"+
-"Status: I Paid";
-
-window.open(
-"https://wa.me/251908888831?text="+message,
-"_blank"
-);
-
-}
-
-function reserve(e){
-
-e.preventDefault();
-
-let name=document.getElementById("rname").value;
-let phone=document.getElementById("rphone").value;
-let people=document.getElementById("people").value;
-let date=document.getElementById("date").value;
-let time=document.getElementById("time").value;
-
-fetch(API,{
-method:"POST",
-body:JSON.stringify({
-type:"RESERVATION",
-name:name,
-phone:phone,
-people:people,
-date:date,
-time:time,
-items:"",
-total:""
-})
-});
-
-let message=
-"ROMAN Table Reservation%0A%0A"+
-"Name: "+name+"%0A"+
-"Phone: "+phone+"%0A"+
-"People: "+people+"%0A"+
-"Date: "+date+"%0A"+
-"Time: "+time;
-
-window.open(
-"https://wa.me/251908888831?text="+message,
-"_blank"
-);
-
-}
-
-function english(){
-
-document.getElementById("welcome").innerText=
-"Welcome to ROMAN Restaurant";
-
-document.getElementById("heroText").innerText=
-"Delicious Ethiopian food, beautiful moments.";
-
-document.getElementById("menuTitle").innerText=
-"Our Menu";
-
-}
-
-function amharic(){
-
-document.getElementById("welcome").innerText=
-"እንኳን ወደ ROMAN Restaurant በደህና መጡ";
-
-document.getElementById("heroText").innerText=
-"ጣፋጭ የኢትዮጵያ ምግብ፣ የማይረሱ ጊዜያት።";
-
-document.getElementById("menuTitle").innerText=
-"የምግብ ዝርዝር";
-
+  alert("Payment confirmation sent!");
 }
 
 function adminLogin(){
 
-let password=prompt("Admin Password:");
+  const password =
+    document.getElementById("adminPassword").value;
 
-if(password==="roman123"){
+  if(password === "roman123"){
 
-document.getElementById("adminPage").style.display="block";
-loadAdmin();
+    document.getElementById("adminLogin")
+      .classList.add("hidden");
 
-}else{
+    document.getElementById("dashboard")
+      .classList.remove("hidden");
 
-alert("Wrong password ❌");
+    loadOrders();
 
+  }else{
+
+    alert("Wrong password!");
+  }
 }
 
-}
+async function loadOrders(){
 
-function logoutAdmin(){
-document.getElementById("adminPage").style.display="none";
-}
+  const table =
+    document.getElementById("ordersTable");
 
-function loadAdmin(){
+  table.innerHTML =
+    "<tr><td colspan='9'>Loading...</td></tr>";
 
-fetch(API)
+  try{
 
-.then(response=>response.json())
+    const response =
+      await fetch(API_URL);
 
-.then(data=>{
+    const data =
+      await response.json();
 
-let orders=0;
-let reservations=0;
-let sales=0;
-let html="";
+    table.innerHTML = "";
 
-data.forEach((row,index)=>{
+    for(let i=1;i<data.length;i++){
 
-if(index===0)return;
+      const row = data[i];
 
-if(row[1]==="ORDER"){
-orders++;
-sales+=Number(row[8])||0;
-}
+      table.innerHTML += `
+        <tr>
+          <td>${row[0] || ""}</td>
+          <td>${row[1] || ""}</td>
+          <td>${row[2] || ""}</td>
+          <td>${row[3] || ""}</td>
+          <td>${row[4] || ""}</td>
+          <td>${row[5] || ""}</td>
+          <td>${row[6] || ""}</td>
+          <td>${row[7] || ""}</td>
+          <td>${row[8] || ""}</td>
+        </tr>
+      `;
+    }
 
-if(row[1]==="RESERVATION"){
-reservations++;
-}
+  }catch(error){
 
-html+=`
-<tr>
-<td>${row[0]||""}</td>
-<td>${row[1]||""}</td>
-<td>${row[2]||""}</td>
-<td>${row[3]||""}</td>
-<td>${row[4]||""}</td>
-<td>${row[5]||""}</td>
-<td>${row[6]||""}</td>
-<td>${row[7]||""}</td>
-<td>${row[8]||""}</td>
-</tr>
-`;
-
-});
-
-document.getElementById("adminData").innerHTML=
-html||"<tr><td colspan='9'>No data yet</td></tr>";
-
-document.getElementById("orderCount").innerText=orders;
-document.getElementById("reservationCount").innerText=reservations;
-document.getElementById("salesTotal").innerText=sales;
-
-})
-
-.catch(()=>{
-
-document.getElementById("adminData").innerHTML=
-"<tr><td colspan='9'>Unable to load data</td></tr>";
-
-});
-
+    table.innerHTML =
+      "<tr><td colspan='9'>Could not load orders.</td></tr>";
+  }
 }
 
 </script>
 
 </body>
-                               </html>
+</html>

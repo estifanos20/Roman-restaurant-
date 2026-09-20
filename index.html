@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ROMAN Restaurant</title>
+
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial;background:#f8f0e3;color:#3e2415}
@@ -16,7 +17,8 @@ button{background:#8b5e3c;color:#fff;border:0;padding:10px 15px;border-radius:7p
 .hero h2{font-size:35px}
 section{padding:30px 15px;max-width:1000px;margin:auto}
 .menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card,.box{background:#fff;padding:20px;border-radius:12px;box-shadow:0 3px 10px #0002;text-align:center}
+.card,.box{background:#fff;padding:15px;border-radius:12px;box-shadow:0 3px 10px #0002;text-align:center}
+.card img{width:100%;height:180px;object-fit:cover;border-radius:10px}
 .price{font-weight:bold;font-size:18px}
 .cart{position:fixed;right:15px;bottom:15px;background:#4b2e1f;color:white;padding:15px;border-radius:50%;z-index:20}
 #cartBox,#paymentBox,#adminPage{display:none;position:fixed;background:#fff;z-index:50}
@@ -52,55 +54,109 @@ footer{background:#4b2e1f;color:#fff;text-align:center;padding:25px}
 
 <section class="hero" id="home">
 <h2 id="welcome">Welcome to ROMAN Restaurant</h2>
-<p id="heroText">Delicious food, beautiful moments.</p>
+<p id="heroText">Delicious Ethiopian food, beautiful moments.</p>
 <button onclick="document.getElementById('menu').scrollIntoView()">View Menu</button>
 </section>
 
 <section id="menu">
+
 <h2 id="menuTitle">Our Menu</h2>
 
 <div class="menu">
 
 <div class="card">
-<h3>Classic Burger</h3>
-<p>Fresh beef burger</p>
+<img src="Kitfo.jpg">
+<h3>ክትፎ</h3>
+<p>Traditional Ethiopian Kitfo</p>
+<p class="price">1,500 ETB</p>
+<button onclick="addCart('ክትፎ',1500)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="Kurtsga.jpg">
+<h3>ጥሬ ስጋ</h3>
+<p>Fresh raw beef</p>
+<p class="price">2,500 ETB / 1kg</p>
+<button onclick="addCart('ጥሬ ስጋ',2500)">Add to Cart</button>
+</div>
+
+<div class="card">
+<h3>ዶሮ ወጥ</h3>
+<p>Traditional Ethiopian chicken stew</p>
+<p class="price">800 ETB</p>
+<button onclick="addCart('ዶሮ ወጥ',800)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="Tibs.jpg">
+<h3>ጥብስ</h3>
+<p>Special Ethiopian Tibs</p>
+<p class="price">2,000 ETB / 1kg</p>
+<button onclick="addCart('ጥብስ',2000)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="Shiro.jpg">
+<h3>ሽሮ</h3>
+<p>Traditional Shiro</p>
 <p class="price">250 ETB</p>
-<button onclick="addCart('Classic Burger',250)">Add to Cart</button>
+<button onclick="addCart('ሽሮ',250)">Add to Cart</button>
 </div>
 
 <div class="card">
-<h3>Italian Pizza</h3>
-<p>Fresh Italian pizza</p>
-<p class="price">350 ETB</p>
-<button onclick="addCart('Italian Pizza',350)">Add to Cart</button>
+<img src="Frfrj.jpg">
+<h3>ፍርፍር</h3>
+<p>Traditional Firfir</p>
+<p class="price">250 ETB</p>
+<button onclick="addCart('ፍርፍር',250)">Add to Cart</button>
 </div>
 
 <div class="card">
-<h3>Grilled Chicken</h3>
-<p>Special grilled chicken</p>
-<p class="price">450 ETB</p>
-<button onclick="addCart('Grilled Chicken',450)">Add to Cart</button>
+<img src="Kikil.jpg">
+<h3>ቅቅል</h3>
+<p>Traditional Ethiopian Kikil</p>
+<p class="price">500 ETB</p>
+<button onclick="addCart('ቅቅል',500)">Add to Cart</button>
 </div>
 
 <div class="card">
-<h3>Special Pasta</h3>
-<p>Delicious pasta</p>
-<p class="price">300 ETB</p>
-<button onclick="addCart('Special Pasta',300)">Add to Cart</button>
+<img src="Chukame.jpg">
+<h3>ጩካሜ</h3>
+<p>Special Ethiopian food</p>
+<p class="price">700 ETB</p>
+<button onclick="addCart('ጩካሜ',700)">Add to Cart</button>
 </div>
 
 <div class="card">
-<h3>Special Steak</h3>
-<p>Premium beef steak</p>
+<img src="Chororsa.jpg">
+<h3>ጮርጮርሳ</h3>
+<p>Traditional Ethiopian food</p>
+<p class="price">650 ETB</p>
+<button onclick="addCart('ጮርጮርሳ',650)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="Tihilo.jpg">
+<h3>ጥህሎ</h3>
+<p>Traditional Ethiopian Tihilo</p>
 <p class="price">550 ETB</p>
-<button onclick="addCart('Special Steak',550)">Add to Cart</button>
+<button onclick="addCart('ጥህሎ',550)">Add to Cart</button>
 </div>
 
 <div class="card">
-<h3>Fresh Salad</h3>
-<p>Healthy fresh salad</p>
-<p class="price">200 ETB</p>
-<button onclick="addCart('Fresh Salad',200)">Add to Cart</button>
+<img src="Beyaynet.jpg">
+<h3>በያይነት</h3>
+<p>Mixed Ethiopian platter</p>
+<p class="price">300 ETB</p>
+<button onclick="addCart('በያይነት',300)">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="Coffee.jpg">
+<h3>ቡና</h3>
+<p>Ethiopian Traditional Coffee</p>
+<p class="price">50 ETB</p>
+<button onclick="addCart('ቡና',50)">Add to Cart</button>
 </div>
 
 </div>
@@ -111,9 +167,7 @@ footer{background:#4b2e1f;color:#fff;text-align:center;padding:25px}
 <div id="cartBox">
 <h2>🛒 Cart</h2>
 <div id="cartItems"></div>
-
 <h3>Total: <span id="total">0</span> ETB</h3>
-
 <button onclick="sendOrder()">📱 Order on WhatsApp</button>
 <button onclick="showPayment()">💳 Payment</button>
 <button onclick="closeCart()">Close</button>
@@ -153,19 +207,14 @@ footer{background:#4b2e1f;color:#fff;text-align:center;padding:25px}
 <form onsubmit="reserve(event)">
 
 <input id="rname" placeholder="Your Name" required>
-
 <input id="rphone" placeholder="Phone Number" required>
-
 <input id="people" type="number" min="1" placeholder="Number of People" required>
-
 <input id="date" type="date" required>
-
 <input id="time" type="time" required>
 
 <button type="submit">Reserve Table</button>
 
 </form>
-
 </section>
 
 <section id="payment">
@@ -193,7 +242,6 @@ footer{background:#4b2e1f;color:#fff;text-align:center;padding:25px}
 <section id="contact">
 
 <h2>📍 Contact</h2>
-
 <p>📞 +251 908 888 831</p>
 <p>📍 Ethiopia</p>
 <p>🕐 8:00 AM - 10:00 PM</p>
@@ -236,12 +284,11 @@ footer{background:#4b2e1f;color:#fff;text-align:center;padding:25px}
 </table>
 
 </div>
-
 </div>
 
 <footer>
 <p>© 2026 ROMAN Restaurant</p>
-<p>Delicious food. Beautiful moments.</p>
+<p>Delicious Ethiopian food. Beautiful moments.</p>
 </footer>
 
 <script>
@@ -288,29 +335,23 @@ document.getElementById("total").innerText=total;
 }
 
 function removeCart(i){
-
 cart.splice(i,1);
 showCart();
-
 }
 
 function sendOrder(){
 
 if(cart.length===0){
-
 alert("Cart is empty");
 return;
-
 }
 
 let total=cart.reduce((sum,item)=>sum+item.price,0);
-
 let items=cart.map(item=>item.name).join(", ");
 
 fetch(API,{
 method:"POST",
 body:JSON.stringify({
-
 type:"ORDER",
 name:"WhatsApp Customer",
 phone:"",
@@ -319,16 +360,13 @@ people:"",
 date:"",
 time:"",
 total:total
-
 })
 });
 
 let message="ROMAN Restaurant Order%0A%0A";
 
 cart.forEach(item=>{
-
 message+="• "+item.name+" - "+item.price+" ETB%0A";
-
 });
 
 message+="%0ATotal: "+total+" ETB";
@@ -343,42 +381,34 @@ window.open(
 function showPayment(){
 
 if(cart.length===0){
-
 alert("Cart is empty");
 return;
-
 }
 
 let total=cart.reduce((sum,item)=>sum+item.price,0);
 
 document.getElementById("paymentTotal").innerText=total;
-
 document.getElementById("paymentBox").style.display="block";
 
 }
 
 function closePayment(){
-
 document.getElementById("paymentBox").style.display="none";
-
 }
 
 function paid(){
 
 let total=cart.reduce((sum,item)=>sum+item.price,0);
-
 let items=cart.map(item=>item.name).join(", ");
 
 fetch(API,{
 method:"POST",
 body:JSON.stringify({
-
 type:"PAYMENT",
 name:"WhatsApp Customer",
 phone:"",
 items:items,
 total:total
-
 })
 });
 
@@ -407,7 +437,6 @@ let time=document.getElementById("time").value;
 fetch(API,{
 method:"POST",
 body:JSON.stringify({
-
 type:"RESERVATION",
 name:name,
 phone:phone,
@@ -416,7 +445,6 @@ date:date,
 time:time,
 items:"",
 total:""
-
 })
 });
 
@@ -441,7 +469,7 @@ document.getElementById("welcome").innerText=
 "Welcome to ROMAN Restaurant";
 
 document.getElementById("heroText").innerText=
-"Delicious food, beautiful moments.";
+"Delicious Ethiopian food, beautiful moments.";
 
 document.getElementById("menuTitle").innerText=
 "Our Menu";
@@ -454,7 +482,7 @@ document.getElementById("welcome").innerText=
 "እንኳን ወደ ROMAN Restaurant በደህና መጡ";
 
 document.getElementById("heroText").innerText=
-"ጣፋጭ ምግብ፣ የማይረሱ ጊዜያት።";
+"ጣፋጭ የኢትዮጵያ ምግብ፣ የማይረሱ ጊዜያት።";
 
 document.getElementById("menuTitle").innerText=
 "የምግብ ዝርዝር";
@@ -468,7 +496,6 @@ let password=prompt("Admin Password:");
 if(password==="roman123"){
 
 document.getElementById("adminPage").style.display="block";
-
 loadAdmin();
 
 }else{
@@ -480,9 +507,7 @@ alert("Wrong password ❌");
 }
 
 function logoutAdmin(){
-
 document.getElementById("adminPage").style.display="none";
-
 }
 
 function loadAdmin(){
@@ -503,22 +528,16 @@ data.forEach((row,index)=>{
 if(index===0)return;
 
 if(row[1]==="ORDER"){
-
 orders++;
 sales+=Number(row[8])||0;
-
 }
 
 if(row[1]==="RESERVATION"){
-
 reservations++;
-
 }
 
 html+=`
-
 <tr>
-
 <td>${row[0]||""}</td>
 <td>${row[1]||""}</td>
 <td>${row[2]||""}</td>
@@ -528,9 +547,7 @@ html+=`
 <td>${row[6]||""}</td>
 <td>${row[7]||""}</td>
 <td>${row[8]||""}</td>
-
 </tr>
-
 `;
 
 });
@@ -539,9 +556,7 @@ document.getElementById("adminData").innerHTML=
 html||"<tr><td colspan='9'>No data yet</td></tr>";
 
 document.getElementById("orderCount").innerText=orders;
-
 document.getElementById("reservationCount").innerText=reservations;
-
 document.getElementById("salesTotal").innerText=sales;
 
 })
@@ -558,4 +573,4 @@ document.getElementById("adminData").innerHTML=
 </script>
 
 </body>
-  </html>
+                               </html>

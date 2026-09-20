@@ -7,12 +7,15 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
+
 html{scroll-behavior:smooth}
+
 body{
 font-family:Arial,sans-serif;
 background:#f8f1e7;
 color:#351b10;
 }
+
 header{
 position:sticky;
 top:0;
@@ -23,13 +26,20 @@ padding:15px;
 text-align:center;
 box-shadow:0 3px 15px #0005;
 }
+
 .logo{
 font-size:32px;
 font-weight:bold;
 letter-spacing:5px;
 color:#e7b85c;
 }
-header p{font-size:13px;color:#eee;margin:4px}
+
+header p{
+font-size:13px;
+color:#eee;
+margin:4px;
+}
+
 nav{
 display:flex;
 justify-content:center;
@@ -37,6 +47,7 @@ gap:7px;
 flex-wrap:wrap;
 margin-top:10px;
 }
+
 nav button{
 border:0;
 padding:8px 13px;
@@ -46,6 +57,7 @@ color:#351b10;
 font-weight:bold;
 cursor:pointer;
 }
+
 .hero{
 min-height:430px;
 display:flex;
@@ -58,15 +70,18 @@ linear-gradient(#160b0780,#160b0780),
 url("Kitfo.jpg") center/cover;
 color:white;
 }
+
 .hero-content h1{
 font-size:48px;
 margin-bottom:12px;
 text-shadow:2px 3px 8px #000;
 }
+
 .hero-content p{
 font-size:20px;
 margin-bottom:22px;
 }
+
 .hero-btn{
 display:inline-block;
 padding:13px 25px;
@@ -76,28 +91,34 @@ border-radius:30px;
 font-weight:bold;
 text-decoration:none;
 }
+
 section{
 max-width:1150px;
 margin:auto;
 padding:45px 15px;
 }
+
 .title{
 text-align:center;
 margin-bottom:28px;
 }
+
 .title h2{
 font-size:32px;
 color:#542a18;
 }
+
 .title p{
 margin-top:7px;
 color:#765746;
 }
+
 .menu{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:22px;
 }
+
 .card{
 background:white;
 border-radius:18px;
@@ -105,27 +126,37 @@ overflow:hidden;
 box-shadow:0 5px 18px #0002;
 transition:.25s;
 }
+
 .card:hover{
 transform:translateY(-6px);
 box-shadow:0 10px 25px #0003;
 }
+
 .card img{
 width:100%;
 height:180px;
 object-fit:cover;
+display:block;
 }
-.card-content{padding:16px}
+
+.card-content{
+padding:16px;
+}
+
 .card h3{
 font-size:21px;
 margin-bottom:8px;
 }
+
 .price{
 color:#a45b16;
 font-weight:bold;
 font-size:17px;
 margin-bottom:12px;
 }
-.card button,.submit-btn{
+
+.card button,
+.submit-btn{
 width:100%;
 border:0;
 padding:12px;
@@ -135,16 +166,21 @@ color:white;
 font-weight:bold;
 cursor:pointer;
 }
-.card button:hover,.submit-btn:hover{
+
+.card button:hover,
+.submit-btn:hover{
 background:#7b4225;
 }
+
 .box{
 background:white;
 padding:25px;
 border-radius:18px;
 box-shadow:0 5px 18px #0002;
 }
-input,select{
+
+input,
+select{
 width:100%;
 padding:13px;
 margin:7px 0;
@@ -152,6 +188,7 @@ border:1px solid #ddd;
 border-radius:9px;
 font-size:15px;
 }
+
 .cart-item{
 display:flex;
 justify-content:space-between;
@@ -159,15 +196,18 @@ align-items:center;
 padding:12px 0;
 border-bottom:1px solid #eee;
 }
+
 .total{
 font-size:22px;
 font-weight:bold;
 padding:18px 0;
 }
+
 .payment p{
 padding:6px 0;
 font-size:17px;
 }
+
 .whatsapp{
 display:block;
 background:#25d366;
@@ -179,6 +219,7 @@ text-decoration:none;
 font-weight:bold;
 margin-top:12px;
 }
+
 footer{
 background:#351b10;
 color:white;
@@ -186,27 +227,150 @@ text-align:center;
 padding:30px 15px;
 margin-top:30px;
 }
-.hidden{display:none}
+
+.hidden{
+display:none;
+}
+
 table{
 width:100%;
 border-collapse:collapse;
 min-width:750px;
 }
+
 th,td{
 padding:9px;
 border:1px solid #ddd;
 }
+
 th{
 background:#542a18;
 color:white;
 }
-.table-scroll{overflow-x:auto}
 
+.table-scroll{
+overflow-x:auto;
+}
+
+/* MOBILE */
 @media(max-width:600px){
-.hero{min-height:360px}
-.hero-content h1{font-size:36px}
-.hero-content p{font-size:16px}
-.title h2{font-size:27px}
+
+header{
+padding:10px;
+}
+
+.logo{
+font-size:26px;
+letter-spacing:4px;
+}
+
+header p{
+font-size:11px;
+}
+
+nav{
+gap:4px;
+}
+
+nav button{
+padding:7px 9px;
+font-size:12px;
+}
+
+.hero{
+min-height:320px;
+padding:20px 12px;
+}
+
+.hero-content h1{
+font-size:32px;
+}
+
+.hero-content p{
+font-size:15px;
+line-height:1.5;
+}
+
+.hero-btn{
+padding:11px 20px;
+font-size:14px;
+}
+
+section{
+padding:30px 10px;
+}
+
+.title h2{
+font-size:27px;
+}
+
+.menu{
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
+.card{
+border-radius:12px;
+}
+
+.card img{
+height:130px;
+}
+
+.card-content{
+padding:10px;
+}
+
+.card h3{
+font-size:17px;
+}
+
+.price{
+font-size:14px;
+margin-bottom:8px;
+}
+
+.card button{
+padding:9px 5px;
+font-size:12px;
+}
+
+.box{
+padding:18px 12px;
+}
+
+input,
+select{
+padding:11px;
+font-size:14px;
+}
+
+.total{
+font-size:19px;
+}
+
+.payment p{
+font-size:15px;
+}
+
+}
+
+/* VERY SMALL PHONES */
+@media(max-width:380px){
+
+.menu{
+grid-template-columns:1fr;
+}
+
+.card img{
+height:180px;
+}
+
+nav button{
+font-size:11px;
+padding:6px 8px;
+}
+
 }
 </style>
 </head>
@@ -214,7 +378,9 @@ color:white;
 <body>
 
 <header>
+
 <div class="logo">ROMAN</div>
+
 <p>Traditional Ethiopian Restaurant 🇪🇹</p>
 
 <nav>
@@ -224,382 +390,896 @@ color:white;
 <button onclick="go('cart')">🛒 Cart</button>
 <button onclick="go('admin')">🔐 Admin</button>
 </nav>
+
 </header>
 
 <div class="hero">
+
 <div class="hero-content">
+
 <h1>Welcome to ROMAN</h1>
-<p>Authentic Ethiopian taste, prepared with love ❤️</p>
-<a class="hero-btn" href="#menu">Explore Menu</a>
+
+<p>
+Authentic Ethiopian taste,
+prepared with love ❤️
+</p>
+
+<a class="hero-btn" href="#menu">
+Explore Menu
+</a>
+
 </div>
+
 </div>
 
 <section id="menu">
+
 <div class="title">
+
 <h2>🍽️ Ethiopian Menu</h2>
+
 <p>Fresh traditional food from Ethiopia</p>
+
 </div>
 
 <div class="menu">
 
 <div class="card">
-<img src="Kitfo.jpg">
+
+<img src="Kitfo.jpg" alt="ክትፎ">
+
 <div class="card-content">
+
 <h3>ክትፎ</h3>
-<p class="price">1,500 ETB</p>
-<button onclick="add('ክትፎ',1500)">Add to Cart</button>
-</div></div>
+
+<p class="price">
+1,500 ETB
+</p>
+
+<button onclick="add('ክትፎ',1500)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
 
 <div class="card">
-<img src="Kurtsga.jpg">
+
+<img src="Kurtsga.jpg" alt="ጥሬ ስጋ">
+
 <div class="card-content">
+
 <h3>ጥሬ ስጋ</h3>
-<p class="price">2,500 ETB / 1kg</p>
-<button onclick="add('ጥሬ ስጋ',2500)">Add to Cart</button>
-</div></div>
+
+<p class="price">
+2,500 ETB / 1kg
+</p>
+
+<button onclick="add('ጥሬ ስጋ',2500)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
 
 <div class="card">
-<div style="height:180px;background:#ead7bd;display:flex;align-items:center;justify-content:center;font-size:60px">🍗</div>
+
+<div style="
+height:180px;
+background:#ead7bd;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:60px">
+🍗
+</div>
+
 <div class="card-content">
+
 <h3>ዶሮ ወጥ</h3>
-<p class="price">800 ETB</p>
-<button onclick="add('ዶሮ ወጥ',800)">Add to Cart</button>
-</div></div>
+
+<p class="price">
+800 ETB
+</p>
+
+<button onclick="add('ዶሮ ወጥ',800)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
 
 <div class="card">
-<img src="Tibs.jpg">
+
+<img src="Tibs.jpg" alt="ጥብስ">
+
 <div class="card-content">
+
 <h3>ጥብስ</h3>
-<p class="price">2,000 ETB / 1kg</p>
-<button onclick="add('ጥብስ',2000)">Add to Cart</button>
-</div></div>
+
+<p class="price">
+2,000 ETB / 1kg
+</p>
+
+<button onclick="add('ጥብስ',2000)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
 
 <div class="card">
-<img src="Shiro.jpg">
+
+<img src="Shiro.jpg" alt="ሽሮ">
+
 <div class="card-content">
+
 <h3>ሽሮ</h3>
-<p class="price">250 ETB</p>
-<button onclick="add('ሽሮ',250)">Add to Cart</button>
-</div></div>
+
+<p class="price">
+250 ETB
+</p>
+
+<button onclick="add('ሽሮ',250)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
 
 <div class="card">
-<img src="Frfr.jpg">
+
+<img src="Frfr.jpg" alt="ፍርፍር">
+
 <div class="card-content">
+
 <h3>ፍርፍር</h3>
-<p class="price">250 ETB</p>
-<button onclick="add('ፍርፍር',250)">Add to Cart</button>
-</div></div>
+
+<p class="price">
+250 ETB
+</p>
+
+<button onclick="add('ፍርፍር',250)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
 
 <div class="card">
-<img src="Kikil.jpg">
+
+<img src="Kikil.jpg" alt="ቅቅል">
+
 <div class="card-content">
+
 <h3>ቅቅል</h3>
-<p class="price">500 ETB</p>
-<button onclick="add('ቅቅል',500)">Add to Cart</button>
-</div></div>
+
+<p class="price">
+500 ETB
+</p>
+
+<button onclick="add('ቅቅል',500)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
 
 <div class="card">
-<img src="Chukame.jpg">
+
+<img src="Chukame.jpg" alt="ጩካሜ">
+
 <div class="card-content">
+
 <h3>ጩካሜ</h3>
-<p class="price">700 ETB</p>
-<button onclick="add('ጩካሜ',700)">Add to Cart</button>
-</div></div>
+
+<p class="price">
+700 ETB
+</p>
+
+<button onclick="add('ጩካሜ',700)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
 
 <div class="card">
-<img src="Chororsa.jpg">
+
+<img src="Chororsa.jpg" alt="ጮርጮርሳ">
+
 <div class="card-content">
+
 <h3>ጮርጮርሳ</h3>
-<p class="price">650 ETB</p>
-<button onclick="add('ጮርጮርሳ',650)">Add to Cart</button>
-</div></div>
+
+<p class="price">
+650 ETB
+</p>
+
+<button onclick="add('ጮርጮርሳ',650)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
 
 <div class="card">
-<img src="Tihilo.jpg">
+
+<img src="Tihilo.jpg" alt="ጥህሎ">
+
 <div class="card-content">
+
 <h3>ጥህሎ</h3>
-<p class="price">550 ETB</p>
-<button onclick="add('ጥህሎ',550)">Add to Cart</button>
-</div></div>
+
+<p class="price">
+550 ETB
+</p>
+
+<button onclick="add('ጥህሎ',550)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
 
 <div class="card">
-<img src="Beyaynet.jpg">
+
+<img src="Beyaynet.jpg" alt="በያይነት">
+
 <div class="card-content">
+
 <h3>በያይነት</h3>
-<p class="price">300 ETB</p>
-<button onclick="add('በያይነት',300)">Add to Cart</button>
-</div></div>
+
+<p class="price">
+300 ETB
+</p>
+
+<button onclick="add('በያይነት',300)">
+Add to Cart
+</button>
+
+</div>
+</div>
+
 
 <div class="card">
-<img src="Coffee.jpg">
+
+<img src="Coffee.jpg" alt="ቡና">
+
 <div class="card-content">
+
 <h3>ቡና</h3>
-<p class="price">50 ETB</p>
-<button onclick="add('ቡና',50)">Add to Cart</button>
-</div></div>
+
+<p class="price">
+50 ETB
+</p>
+
+<button onclick="add('ቡና',50)">
+Add to Cart
+</button>
+
+</div>
+</div>
 
 </div>
 </section>
+
 
 <section id="cart">
-<div class="title"><h2>🛒 Your Cart</h2></div>
+
+<div class="title">
+<h2>🛒 Your Cart</h2>
+</div>
+
 <div class="box">
-<div id="cartItems">Your cart is empty.</div>
-<div class="total">Total: <span id="total">0</span> ETB</div>
-<input id="orderName" placeholder="Your Name">
-<input id="orderPhone" placeholder="Phone Number">
-<button class="submit-btn" onclick="order()">Order via WhatsApp</button>
+
+<div id="cartItems">
+Your cart is empty.
+</div>
+
+<div class="total">
+Total:
+<span id="total">0</span> ETB
+</div>
+
+<input
+id="orderName"
+placeholder="Your Name">
+
+<input
+id="orderPhone"
+placeholder="Phone Number">
+
+<button
+class="submit-btn"
+onclick="order()">
+Order via WhatsApp
+</button>
+
 </div>
 </section>
+
 
 <section id="reservation">
-<div class="title"><h2>📅 Table Reservation</h2></div>
+
+<div class="title">
+<h2>📅 Table Reservation</h2>
+</div>
+
 <div class="box">
-<input id="resName" placeholder="Full Name">
-<input id="resPhone" placeholder="Phone Number">
-<input id="resPeople" type="number" placeholder="Number of People">
-<input id="resDate" type="date">
-<input id="resTime" type="time">
-<button class="submit-btn" onclick="reserve()">Reserve Table</button>
+
+<input
+id="resName"
+placeholder="Full Name">
+
+<input
+id="resPhone"
+placeholder="Phone Number">
+
+<input
+id="resPeople"
+type="number"
+placeholder="Number of People">
+
+<input
+id="resDate"
+type="date">
+
+<input
+id="resTime"
+type="time">
+
+<button
+class="submit-btn"
+onclick="reserve()">
+Reserve Table
+</button>
+
 </div>
 </section>
+
 
 <section id="payment">
-<div class="title"><h2>💳 Payment</h2></div>
+
+<div class="title">
+<h2>💳 Payment</h2>
+</div>
+
 <div class="box payment">
-<p><b>Telebirr:</b> 0908888831</p>
-<p><b>CBE Birr:</b> 0908888831</p>
-<p><b>CBE Bank:</b> 1000243085587</p>
-<p><b>Account Name:</b> Estifanos Bechago</p>
+
+<p>
+<b>Telebirr:</b>
+0908888831
+</p>
+
+<p>
+<b>CBE Birr:</b>
+0908888831
+</p>
+
+<p>
+<b>CBE Bank:</b>
+1000243085587
+</p>
+
+<p>
+<b>Account Name:</b>
+Estifanos Bechago
+</p>
+
 <hr>
-<input id="paidName" placeholder="Your Name">
-<input id="paidPhone" placeholder="Phone Number">
-<input id="paidAmount" type="number" placeholder="Paid Amount">
-<button class="submit-btn" onclick="paid()">I Paid</button>
+
+<input
+id="paidName"
+placeholder="Your Name">
+
+<input
+id="paidPhone"
+placeholder="Phone Number">
+
+<input
+id="paidAmount"
+type="number"
+placeholder="Paid Amount">
+
+<button
+class="submit-btn"
+onclick="paid()">
+I Paid
+</button>
+
 </div>
 </section>
+
 
 <section id="admin">
-<div class="title"><h2>🔐 Admin Dashboard</h2></div>
 
-<div class="box" id="login">
-<input id="password" type="password" placeholder="Admin Password">
-<button class="submit-btn" onclick="login()">Login</button>
+<div class="title">
+<h2>🔐 Admin Dashboard</h2>
 </div>
 
-<div class="box hidden" id="dashboard">
-<h2>ROMAN Orders</h2><br>
-<button class="submit-btn" onclick="load()">Refresh</button>
+<div
+class="box"
+id="login">
+
+<input
+id="password"
+type="password"
+placeholder="Admin Password">
+
+<button
+class="submit-btn"
+onclick="login()">
+Login
+</button>
+
+</div>
+
+
+<div
+class="box hidden"
+id="dashboard">
+
+<h2>ROMAN Orders</h2>
+
+<br>
+
+<button
+class="submit-btn"
+onclick="load()">
+Refresh
+</button>
+
 <br><br>
+
 <div class="table-scroll">
+
 <table>
+
 <thead>
+
 <tr>
-<th>Date</th><th>Type</th><th>Name</th><th>Phone</th>
-<th>Items</th><th>People</th><th>Reservation Date</th>
-<th>Time</th><th>Total</th>
+
+<th>Date</th>
+<th>Type</th>
+<th>Name</th>
+<th>Phone</th>
+<th>Items</th>
+<th>People</th>
+<th>Reservation Date</th>
+<th>Time</th>
+<th>Total</th>
+
 </tr>
+
 </thead>
+
 <tbody id="orders"></tbody>
+
 </table>
+
 </div>
+
 </div>
 </section>
 
+
 <footer>
+
 <h2>ROMAN Restaurant 🇪🇹</h2>
-<p>Authentic Ethiopian Food</p>
-<a class="whatsapp" href="https://wa.me/251908888831" target="_blank">
+
+<p>
+Authentic Ethiopian Food
+</p>
+
+<a
+class="whatsapp"
+href="https://wa.me/251908888831"
+target="_blank">
+
 💬 WhatsApp: 0908888831
+
 </a>
-<p style="margin-top:15px">© 2026 ROMAN Restaurant</p>
+
+<p style="margin-top:15px">
+© 2026 ROMAN Restaurant
+</p>
+
 </footer>
 
+
 <script>
-const API="https://script.google.com/macros/s/AKfycbwcdcMosnktzsuZc_frZbWf4tUnWFnv3A6G3jKi2Nj7Emuq3QDd_VY0LoEcfkwZVMI/exec";
+
+const API=
+"https://script.google.com/macros/s/AKfycbwcdcMosnktzsuZc_frZbWf4tUnWFnv3A6G3jKi2Nj7Emuq3QDd_VY0LoEcfkwZVMI/exec";
+
 const WA="251908888831";
+
 let cart=[];
 
+
 function go(id){
-document.getElementById(id).scrollIntoView({behavior:"smooth"});
+
+document
+.getElementById(id)
+.scrollIntoView({
+behavior:"smooth"
+});
+
 }
+
 
 function add(name,price){
-cart.push({name,price});
+
+cart.push({
+name:name,
+price:price
+});
+
 update();
+
 alert(name+" added to cart");
+
 }
 
+
 function update(){
-let box=document.getElementById("cartItems");
+
+let box=
+document.getElementById("cartItems");
+
 let total=0;
 
 if(!cart.length){
-box.innerHTML="Your cart is empty.";
-document.getElementById("total").innerText="0";
+
+box.innerHTML=
+"Your cart is empty.";
+
+document
+.getElementById("total")
+.innerText="0";
+
 return;
+
 }
 
 box.innerHTML="";
 
 cart.forEach((x,i)=>{
+
 total+=x.price;
+
 box.innerHTML+=`
+
 <div class="cart-item">
+
 <span>${x.name}</span>
-<span>${x.price} ETB
-<button onclick="removeItem(${i})" style="background:#b33;color:white;border:0;padding:4px 8px;border-radius:5px">X</button>
+
+<span>
+
+${x.price} ETB
+
+<button
+onclick="removeItem(${i})"
+style="
+background:#b33;
+color:white;
+border:0;
+padding:4px 8px;
+border-radius:5px">
+
+X
+
+</button>
+
 </span>
-</div>`;
+
+</div>
+
+`;
+
 });
 
-document.getElementById("total").innerText=total.toLocaleString();
+document
+.getElementById("total")
+.innerText=
+total.toLocaleString();
+
 }
 
+
 function removeItem(i){
+
 cart.splice(i,1);
+
 update();
+
 }
+
 
 function order(){
 
 if(!cart.length){
+
 alert("Cart is empty");
+
 return;
+
 }
 
-let name=document.getElementById("orderName").value;
-let phone=document.getElementById("orderPhone").value;
+let name=
+document.getElementById("orderName").value;
+
+let phone=
+document.getElementById("orderPhone").value;
 
 if(!name||!phone){
+
 alert("Enter your name and phone");
+
 return;
+
 }
 
 let total=0;
 
-let items=cart.map(x=>{
+let items=
+cart.map(x=>{
+
 total+=x.price;
-return x.name+" - "+x.price+" ETB";
+
+return x.name+
+" - "+
+x.price+
+" ETB";
+
 }).join(", ");
 
+
 fetch(API,{
+
 method:"POST",
+
 body:JSON.stringify({
+
 type:"ORDER",
 name:name,
 phone:phone,
 items:items,
 total:total
+
 })
+
 }).catch(()=>{});
+
 
 let msg=
 "ROMAN ORDER%0A"+
-"Name: "+encodeURIComponent(name)+
-"%0APhone: "+encodeURIComponent(phone)+
-"%0AItems: "+encodeURIComponent(items)+
-"%0ATotal: "+total+" ETB";
+"Name: "+
+encodeURIComponent(name)+
+"%0APhone: "+
+encodeURIComponent(phone)+
+"%0AItems: "+
+encodeURIComponent(items)+
+"%0ATotal: "+
+total+
+" ETB";
 
-window.open("https://wa.me/"+WA+"?text="+msg,"_blank");
+
+window.open(
+"https://wa.me/"+
+WA+
+"?text="+
+msg,
+"_blank"
+);
+
 }
+
 
 function reserve(){
 
-let name=document.getElementById("resName").value;
-let phone=document.getElementById("resPhone").value;
-let people=document.getElementById("resPeople").value;
-let date=document.getElementById("resDate").value;
-let time=document.getElementById("resTime").value;
+let name=
+document.getElementById("resName").value;
 
-if(!name||!phone||!people||!date||!time){
+let phone=
+document.getElementById("resPhone").value;
+
+let people=
+document.getElementById("resPeople").value;
+
+let date=
+document.getElementById("resDate").value;
+
+let time=
+document.getElementById("resTime").value;
+
+
+if(
+!name||
+!phone||
+!people||
+!date||
+!time
+){
+
 alert("Fill all information");
+
 return;
+
 }
 
+
 fetch(API,{
+
 method:"POST",
+
 body:JSON.stringify({
+
 type:"RESERVATION",
 name:name,
 phone:phone,
 people:people,
 date:date,
 time:time
+
 })
+
 }).catch(()=>{});
+
 
 let msg=
 "ROMAN RESERVATION%0A"+
-"Name: "+encodeURIComponent(name)+
-"%0APhone: "+encodeURIComponent(phone)+
-"%0APeople: "+people+
-"%0ADate: "+date+
-"%0ATime: "+time;
+"Name: "+
+encodeURIComponent(name)+
+"%0APhone: "+
+encodeURIComponent(phone)+
+"%0APeople: "+
+people+
+"%0ADate: "+
+date+
+"%0ATime: "+
+time;
 
-window.open("https://wa.me/"+WA+"?text="+msg,"_blank");
+
+window.open(
+"https://wa.me/"+
+WA+
+"?text="+
+msg,
+"_blank"
+);
+
 }
+
 
 function paid(){
 
-let name=document.getElementById("paidName").value;
-let phone=document.getElementById("paidPhone").value;
-let amount=document.getElementById("paidAmount").value;
+let name=
+document.getElementById("paidName").value;
+
+let phone=
+document.getElementById("paidPhone").value;
+
+let amount=
+document.getElementById("paidAmount").value;
+
 
 if(!name||!phone||!amount){
+
 alert("Fill all information");
+
 return;
+
 }
 
+
 fetch(API,{
+
 method:"POST",
+
 body:JSON.stringify({
+
 type:"PAYMENT",
 name:name,
 phone:phone,
 total:amount
+
 })
+
 }).catch(()=>{});
+
 
 let msg=
 "ROMAN PAYMENT%0A"+
-"Name: "+encodeURIComponent(name)+
-"%0APhone: "+encodeURIComponent(phone)+
-"%0APaid: "+amount+" ETB";
+"Name: "+
+encodeURIComponent(name)+
+"%0APhone: "+
+encodeURIComponent(phone)+
+"%0APaid: "+
+amount+
+" ETB";
 
-window.open("https://wa.me/"+WA+"?text="+msg,"_blank");
+
+window.open(
+"https://wa.me/"+
+WA+
+"?text="+
+msg,
+"_blank"
+);
+
 }
+
 
 function login(){
 
-if(document.getElementById("password").value==="roman123"){
-document.getElementById("login").classList.add("hidden");
-document.getElementById("dashboard").classList.remove("hidden");
+if(
+document.getElementById("password").value
+==="roman123"
+){
+
+document
+.getElementById("login")
+.classList.add("hidden");
+
+document
+.getElementById("dashboard")
+.classList.remove("hidden");
+
 load();
+
 }else{
+
 alert("Wrong password");
+
 }
+
 }
+
 
 async function load(){
 
-let table=document.getElementById("orders");
+let table=
+document.getElementById("orders");
 
-table.innerHTML="<tr><td colspan='9'>Loading...</td></tr>";
+table.innerHTML=
+"<tr><td colspan='9'>Loading...</td></tr>";
+
 
 try{
 
-let response=await fetch(API);
-let data=await response.json();
+let response=
+await fetch(API);
+
+let data=
+await response.json();
 
 table.innerHTML="";
 
-for(let i=1;i<data.length;i++){
+
+for(
+let i=1;
+i<data.length;
+i++
+){
 
 let r=data[i];
 
 table.innerHTML+=`
+
 <tr>
+
 <td>${r[0]||""}</td>
 <td>${r[1]||""}</td>
 <td>${r[2]||""}</td>
@@ -609,13 +1289,22 @@ table.innerHTML+=`
 <td>${r[6]||""}</td>
 <td>${r[7]||""}</td>
 <td>${r[8]||""}</td>
-</tr>`;
+
+</tr>
+
+`;
+
 }
 
 }catch(e){
-table.innerHTML="<tr><td colspan='9'>Could not load orders.</td></tr>";
+
+table.innerHTML=
+"<tr><td colspan='9'>Could not load orders.</td></tr>";
+
 }
+
 }
+
 </script>
 
 </body>

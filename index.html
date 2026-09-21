@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>ROMAN Restaurant</title>
 
 <style>
@@ -20,7 +19,6 @@ body{
   color:#3b2114;
 }
 
-/* HEADER */
 header{
   position:sticky;
   top:0;
@@ -45,7 +43,7 @@ header{
 
 header p{
   font-size:11px;
-  color:#fff;
+  color:white;
   margin-top:3px;
 }
 
@@ -68,11 +66,10 @@ nav button{
 }
 
 nav button:hover{
-  background:#fff;
+  background:white;
   transform:translateY(-2px);
 }
 
-/* HERO */
 .hero{
   min-height:500px;
   background:
@@ -124,7 +121,6 @@ nav button:hover{
   transform:scale(1.05);
 }
 
-/* SECTIONS */
 section{
   padding:60px 5%;
 }
@@ -144,7 +140,71 @@ section{
   color:#765442;
 }
 
+/* SEARCH */
+
+.menu-tools{
+  max-width:900px;
+  margin:0 auto 30px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.search-box{
+  flex:1;
+  min-width:220px;
+  position:relative;
+}
+
+.search-box input{
+  width:100%;
+  margin:0;
+  padding:15px 18px 15px 45px;
+  border:2px solid #ead9c6;
+  border-radius:30px;
+  background:white;
+  font-size:15px;
+  outline:none;
+}
+
+.search-box input:focus{
+  border-color:#a45c20;
+}
+
+.search-icon{
+  position:absolute;
+  left:17px;
+  top:14px;
+  font-size:19px;
+}
+
+.category-select{
+  width:220px;
+  margin:0;
+  padding:14px;
+  border:2px solid #ead9c6;
+  border-radius:30px;
+  background:white;
+  font-size:14px;
+  outline:none;
+}
+
+.category-select:focus{
+  border-color:#a45c20;
+}
+
+.no-results{
+  display:none;
+  text-align:center;
+  padding:35px;
+  background:white;
+  border-radius:15px;
+  color:#777;
+  margin-top:15px;
+}
+
 /* MENU */
+
 .menu{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -249,11 +309,9 @@ section{
   transform:scale(1.02);
 }
 
-/* NO IMAGE ITEM */
 .food-placeholder{
   height:200px;
-  background:
-    linear-gradient(135deg,#e9d6bd,#d6b995);
+  background:linear-gradient(135deg,#e9d6bd,#d6b995);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -261,6 +319,7 @@ section{
 }
 
 /* BOX */
+
 .box{
   max-width:750px;
   margin:auto;
@@ -311,6 +370,7 @@ label{
 }
 
 /* CART */
+
 .cart-item{
   display:flex;
   justify-content:space-between;
@@ -390,6 +450,7 @@ label{
 }
 
 /* PAYMENT */
+
 .payment{
   line-height:1.9;
 }
@@ -403,6 +464,7 @@ label{
 }
 
 /* ADMIN */
+
 .admin-table{
   width:100%;
   border-collapse:collapse;
@@ -427,6 +489,7 @@ label{
 }
 
 /* FOOTER */
+
 footer{
   background:#3b2114;
   color:white;
@@ -449,13 +512,17 @@ footer a{
 }
 
 /* MOBILE */
+
 @media(max-width:1000px){
+
   .menu{
     grid-template-columns:repeat(3,1fr);
   }
+
 }
 
 @media(max-width:750px){
+
   header{
     flex-direction:column;
   }
@@ -463,6 +530,7 @@ footer a{
   .menu{
     grid-template-columns:repeat(2,1fr);
   }
+
 }
 
 @media(max-width:600px){
@@ -513,6 +581,18 @@ footer a{
 
   .title h2{
     font-size:29px;
+  }
+
+  .menu-tools{
+    flex-direction:column;
+  }
+
+  .search-box{
+    width:100%;
+  }
+
+  .category-select{
+    width:100%;
   }
 
   .menu{
@@ -587,6 +667,7 @@ footer a{
   .cart-item{
     flex-wrap:wrap;
   }
+
 }
 
 @media(max-width:380px){
@@ -604,6 +685,7 @@ footer a{
     font-size:11px;
     padding:6px 8px;
   }
+
 }
 </style>
 </head>
@@ -660,19 +742,83 @@ footer a{
 
     <h2>Our Menu</h2>
 
-    <p>
-      የኢትዮጵያ ባህላዊ ምግቦች
-    </p>
+    <p>የኢትዮጵያ ባህላዊ ምግቦች</p>
 
   </div>
 
 
-  <div class="menu">
+  <!-- SEARCH + CATEGORY -->
+
+  <div class="menu-tools">
+
+    <div class="search-box">
+
+      <span class="search-icon">🔎</span>
+
+      <input
+        id="menuSearch"
+        type="text"
+        placeholder="Search food... / ምግብ ይፈልጉ..."
+        oninput="filterMenu()"
+      >
+
+    </div>
+
+
+    <select
+      id="categoryFilter"
+      class="category-select"
+      onchange="filterMenu()">
+
+      <option value="all">
+        All Categories
+      </option>
+
+      <option value="meat">
+        🥩 Meat
+      </option>
+
+      <option value="vegetarian">
+        🌿 Vegetarian
+      </option>
+
+      <option value="traditional">
+        🇪🇹 Traditional
+      </option>
+
+      <option value="drink">
+        ☕ Drinks
+      </option>
+
+    </select>
+
+  </div>
+
+
+  <div
+    id="noResults"
+    class="no-results">
+
+    🔎 No food found.
+
+    <br>
+
+    <small>
+      Try another name or category.
+    </small>
+
+  </div>
+
+
+  <div class="menu" id="menuGrid">
 
 
     <!-- KITFO -->
 
-    <div class="card">
+    <div
+      class="card food-card"
+      data-name="ክትፎ kitfo"
+      data-category="meat traditional">
 
       <div class="card-image">
 
@@ -711,7 +857,10 @@ footer a{
 
     <!-- KURT SEGA -->
 
-    <div class="card">
+    <div
+      class="card food-card"
+      data-name="ጥሬ ስጋ kurt sega raw beef"
+      data-category="meat traditional">
 
       <div class="card-image">
 
@@ -750,7 +899,10 @@ footer a{
 
     <!-- DORO WOT -->
 
-    <div class="card">
+    <div
+      class="card food-card"
+      data-name="ዶሮ ወጥ doro wot chicken"
+      data-category="meat traditional">
 
       <div class="card-image">
 
@@ -791,7 +943,10 @@ footer a{
 
     <!-- TIBS -->
 
-    <div class="card">
+    <div
+      class="card food-card"
+      data-name="ጥብስ tibs"
+      data-category="meat traditional">
 
       <div class="card-image">
 
@@ -830,7 +985,10 @@ footer a{
 
     <!-- SHIRO -->
 
-    <div class="card">
+    <div
+      class="card food-card"
+      data-name="ሽሮ shiro"
+      data-category="vegetarian traditional">
 
       <div class="card-image">
 
@@ -869,7 +1027,10 @@ footer a{
 
     <!-- FIRFIR -->
 
-    <div class="card">
+    <div
+      class="card food-card"
+      data-name="ፍርፍር firfir"
+      data-category="vegetarian traditional">
 
       <div class="card-image">
 
@@ -908,7 +1069,10 @@ footer a{
 
     <!-- KIKIL -->
 
-    <div class="card">
+    <div
+      class="card food-card"
+      data-name="ቅቅል kikil"
+      data-category="meat traditional">
 
       <div class="card-image">
 
@@ -947,7 +1111,10 @@ footer a{
 
     <!-- CHUKAME -->
 
-    <div class="card">
+    <div
+      class="card food-card"
+      data-name="ጩካሜ chukame"
+      data-category="traditional">
 
       <div class="card-image">
 
@@ -986,7 +1153,10 @@ footer a{
 
     <!-- CHORORSA -->
 
-    <div class="card">
+    <div
+      class="card food-card"
+      data-name="ጮርጮርሳ chororsa"
+      data-category="traditional">
 
       <div class="card-image">
 
@@ -1025,7 +1195,10 @@ footer a{
 
     <!-- TIHILO -->
 
-    <div class="card">
+    <div
+      class="card food-card"
+      data-name="ጥህሎ tihilo"
+      data-category="traditional">
 
       <div class="card-image">
 
@@ -1064,7 +1237,10 @@ footer a{
 
     <!-- BEYAYNET -->
 
-    <div class="card">
+    <div
+      class="card food-card"
+      data-name="በያይነት beyaynet"
+      data-category="vegetarian traditional">
 
       <div class="card-image">
 
@@ -1103,7 +1279,10 @@ footer a{
 
     <!-- COFFEE -->
 
-    <div class="card">
+    <div
+      class="card food-card"
+      data-name="ቡና coffee"
+      data-category="drink traditional">
 
       <div class="card-image">
 
@@ -1152,9 +1331,7 @@ footer a{
 
     <h2>🛒 Your Cart</h2>
 
-    <p>
-      ያዘዙትን ምግብ ይመልከቱ
-    </p>
+    <p>ያዘዙትን ምግብ ይመልከቱ</p>
 
   </div>
 
@@ -1173,16 +1350,14 @@ footer a{
     <input
       id="orderName"
       type="text"
-      placeholder="Your name"
-    >
+      placeholder="Your name">
 
     <label>Phone</label>
 
     <input
       id="orderPhone"
       type="tel"
-      placeholder="09xxxxxxxx"
-    >
+      placeholder="09xxxxxxxx">
 
     <button
       class="main-btn"
@@ -1205,9 +1380,7 @@ footer a{
 
     <h2>📅 Table Reservation</h2>
 
-    <p>
-      ጠረጴዛ ለመያዝ
-    </p>
+    <p>ጠረጴዛ ለመያዝ</p>
 
   </div>
 
@@ -1218,16 +1391,14 @@ footer a{
     <input
       id="resName"
       type="text"
-      placeholder="Your name"
-    >
+      placeholder="Your name">
 
     <label>Phone</label>
 
     <input
       id="resPhone"
       type="tel"
-      placeholder="09xxxxxxxx"
-    >
+      placeholder="09xxxxxxxx">
 
     <label>People</label>
 
@@ -1250,15 +1421,13 @@ footer a{
 
     <input
       id="resDate"
-      type="date"
-    >
+      type="date">
 
     <label>Time</label>
 
     <input
       id="resTime"
-      type="time"
-    >
+      type="time">
 
     <button
       class="main-btn"
@@ -1281,9 +1450,7 @@ footer a{
 
     <h2>💳 Payment</h2>
 
-    <p>
-      የክፍያ መረጃ
-    </p>
+    <p>የክፍያ መረጃ</p>
 
   </div>
 
@@ -1316,24 +1483,21 @@ footer a{
     <input
       id="payName"
       type="text"
-      placeholder="Your name"
-    >
+      placeholder="Your name">
 
     <label>Phone</label>
 
     <input
       id="payPhone"
       type="tel"
-      placeholder="09xxxxxxxx"
-    >
+      placeholder="09xxxxxxxx">
 
     <label>Amount</label>
 
     <input
       id="payAmount"
       type="number"
-      placeholder="Amount"
-    >
+      placeholder="Amount">
 
     <button
       class="main-btn"
@@ -1356,9 +1520,7 @@ footer a{
 
     <h2>🔐 Admin</h2>
 
-    <p>
-      ROMAN Restaurant Dashboard
-    </p>
+    <p>ROMAN Restaurant Dashboard</p>
 
   </div>
 
@@ -1366,15 +1528,12 @@ footer a{
 
     <div id="loginBox">
 
-      <label>
-        Admin Password
-      </label>
+      <label>Admin Password</label>
 
       <input
         id="adminPassword"
         type="password"
-        placeholder="Password"
-      >
+        placeholder="Password">
 
       <button
         class="main-btn"
@@ -1386,14 +1545,11 @@ footer a{
 
     </div>
 
-
     <div
       id="dashboard"
       class="hidden">
 
-      <h3>
-        📊 Orders & Reservations
-      </h3>
+      <h3>📊 Orders & Reservations</h3>
 
       <button
         class="main-btn"
@@ -1409,7 +1565,6 @@ footer a{
           <thead>
 
             <tr>
-
               <th>Date</th>
               <th>Type</th>
               <th>Name</th>
@@ -1419,7 +1574,6 @@ footer a{
               <th>Reservation Date</th>
               <th>Time</th>
               <th>Total</th>
-
             </tr>
 
           </thead>
@@ -1443,15 +1597,11 @@ footer a{
 
   <h2>ROMAN</h2>
 
-  <p>
-    Authentic Ethiopian Restaurant 🇪🇹
-  </p>
+  <p>Authentic Ethiopian Restaurant 🇪🇹</p>
 
   <br>
 
-  <p>
-    📱 WhatsApp: 0908888831
-  </p>
+  <p>📱 WhatsApp: 0908888831</p>
 
   <br>
 
@@ -1472,15 +1622,90 @@ const API =
 const WHATSAPP =
 "251908888831";
 
-let cart = [];
+let cart=[];
 
 
-/* CART */
+/* =========================
+   MENU SEARCH + FILTER
+========================= */
+
+function filterMenu(){
+
+  const search =
+    document
+      .getElementById("menuSearch")
+      .value
+      .toLowerCase()
+      .trim();
+
+  const category =
+    document
+      .getElementById("categoryFilter")
+      .value;
+
+  const cards =
+    document.querySelectorAll(".food-card");
+
+  let visible=0;
+
+  cards.forEach(card=>{
+
+    const name =
+      card
+        .getAttribute("data-name")
+        .toLowerCase();
+
+    const categories =
+      card
+        .getAttribute("data-category")
+        .toLowerCase();
+
+    const searchMatch =
+      name.includes(search);
+
+    const categoryMatch =
+      category==="all" ||
+      categories.includes(category);
+
+    if(searchMatch && categoryMatch){
+
+      card.style.display="block";
+
+      visible++;
+
+    }else{
+
+      card.style.display="none";
+
+    }
+
+  });
+
+
+  const noResults =
+    document.getElementById("noResults");
+
+  if(visible===0){
+
+    noResults.style.display="block";
+
+  }else{
+
+    noResults.style.display="none";
+
+  }
+
+}
+
+
+/* =========================
+   CART
+========================= */
 
 function add(name,price){
 
   const existing =
-    cart.find(item => item.name === name);
+    cart.find(item => item.name===name);
 
   if(existing){
 
@@ -1499,6 +1724,7 @@ function add(name,price){
   updateCart();
 
   location.href="#cart";
+
 }
 
 
@@ -1507,12 +1733,13 @@ function increase(index){
   cart[index].qty++;
 
   updateCart();
+
 }
 
 
 function decrease(index){
 
-  if(cart[index].qty > 1){
+  if(cart[index].qty>1){
 
     cart[index].qty--;
 
@@ -1523,6 +1750,7 @@ function decrease(index){
   }
 
   updateCart();
+
 }
 
 
@@ -1531,6 +1759,7 @@ function removeItem(index){
   cart.splice(index,1);
 
   updateCart();
+
 }
 
 
@@ -1542,7 +1771,8 @@ function updateCart(){
   const totalElement =
     document.getElementById("total");
 
-  if(cart.length === 0){
+
+  if(cart.length===0){
 
     list.innerHTML =
       '<div class="empty">Your cart is empty 🛒</div>';
@@ -1550,11 +1780,14 @@ function updateCart(){
     totalElement.innerText="0";
 
     return;
+
   }
+
 
   let total=0;
 
   let html="";
+
 
   cart.forEach((item,index)=>{
 
@@ -1562,6 +1795,7 @@ function updateCart(){
       item.price * item.qty;
 
     total += itemTotal;
+
 
     html += `
 
@@ -1574,14 +1808,17 @@ function updateCart(){
           </strong>
 
           <span class="cart-price">
+
             ${item.price.toLocaleString()}
             ETB × ${item.qty}
             =
             ${itemTotal.toLocaleString()}
             ETB
+
           </span>
 
         </div>
+
 
         <div class="qty-controls">
 
@@ -1603,6 +1840,7 @@ function updateCart(){
 
         </div>
 
+
         <button
           class="delete-btn"
           onclick="removeItem(${index})">
@@ -1615,14 +1853,18 @@ function updateCart(){
 
   });
 
+
   list.innerHTML=html;
 
   totalElement.innerText =
     total.toLocaleString();
+
 }
 
 
-/* ORDER */
+/* =========================
+   ORDER
+========================= */
 
 function order(){
 
@@ -1633,17 +1875,23 @@ function order(){
     );
 
     return;
+
   }
+
 
   const name =
     document
-    .getElementById("orderName")
-    .value.trim();
+      .getElementById("orderName")
+      .value
+      .trim();
+
 
   const phone =
     document
-    .getElementById("orderPhone")
-    .value.trim();
+      .getElementById("orderPhone")
+      .value
+      .trim();
+
 
   if(!name || !phone){
 
@@ -1652,11 +1900,14 @@ function order(){
     );
 
     return;
+
   }
+
 
   let total=0;
 
   let itemsText="";
+
 
   cart.forEach(item=>{
 
@@ -1693,19 +1944,12 @@ Thank you!`;
     body:JSON.stringify({
 
       type:"ORDER",
-
       name:name,
-
       phone:phone,
-
       items:itemsText,
-
       people:"",
-
       date:"",
-
       time:"",
-
       total:total
 
     })
@@ -1716,10 +1960,7 @@ Thank you!`;
   const url =
     `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
 
-  window.open(
-    url,
-    "_blank"
-  );
+  window.open(url,"_blank");
 
 
   document
@@ -1732,34 +1973,38 @@ Thank you!`;
 }
 
 
-/* RESERVATION */
+/* =========================
+   RESERVATION
+========================= */
 
 function reserve(){
 
   const name =
     document
-    .getElementById("resName")
-    .value.trim();
+      .getElementById("resName")
+      .value
+      .trim();
 
   const phone =
     document
-    .getElementById("resPhone")
-    .value.trim();
+      .getElementById("resPhone")
+      .value
+      .trim();
 
   const people =
     document
-    .getElementById("people")
-    .value;
+      .getElementById("people")
+      .value;
 
   const date =
     document
-    .getElementById("resDate")
-    .value;
+      .getElementById("resDate")
+      .value;
 
   const time =
     document
-    .getElementById("resTime")
-    .value;
+      .getElementById("resTime")
+      .value;
 
 
   if(!name || !phone || !date || !time){
@@ -1769,6 +2014,7 @@ function reserve(){
     );
 
     return;
+
   }
 
 
@@ -1791,19 +2037,12 @@ Please confirm my reservation.`;
     body:JSON.stringify({
 
       type:"RESERVATION",
-
       name:name,
-
       phone:phone,
-
       items:"",
-
       people:people,
-
       date:date,
-
       time:time,
-
       total:""
 
     })
@@ -1814,10 +2053,7 @@ Please confirm my reservation.`;
   const url =
     `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
 
-  window.open(
-    url,
-    "_blank"
-  );
+  window.open(url,"_blank");
 
 
   document
@@ -1826,27 +2062,33 @@ Please confirm my reservation.`;
     `<div class="success">
       Reservation sent successfully ✅
     </div>`;
+
 }
 
 
-/* PAYMENT */
+/* =========================
+   PAYMENT
+========================= */
 
 function paid(){
 
   const name =
     document
-    .getElementById("payName")
-    .value.trim();
+      .getElementById("payName")
+      .value
+      .trim();
 
   const phone =
     document
-    .getElementById("payPhone")
-    .value.trim();
+      .getElementById("payPhone")
+      .value
+      .trim();
 
   const amount =
     document
-    .getElementById("payAmount")
-    .value.trim();
+      .getElementById("payAmount")
+      .value
+      .trim();
 
 
   if(!name || !phone || !amount){
@@ -1856,6 +2098,7 @@ function paid(){
     );
 
     return;
+
   }
 
 
@@ -1877,19 +2120,12 @@ Please confirm my payment.`;
     body:JSON.stringify({
 
       type:"PAYMENT",
-
       name:name,
-
       phone:phone,
-
       items:"Payment",
-
       people:"",
-
       date:"",
-
       time:"",
-
       total:amount
 
     })
@@ -1900,10 +2136,7 @@ Please confirm my payment.`;
   const url =
     `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
 
-  window.open(
-    url,
-    "_blank"
-  );
+  window.open(url,"_blank");
 
 
   document
@@ -1912,17 +2145,20 @@ Please confirm my payment.`;
     `<div class="success">
       Payment confirmation sent ✅
     </div>`;
+
 }
 
 
-/* ADMIN LOGIN */
+/* =========================
+   ADMIN LOGIN
+========================= */
 
 function login(){
 
   const password =
     document
-    .getElementById("adminPassword")
-    .value;
+      .getElementById("adminPassword")
+      .value;
 
 
   if(password==="roman123"){
@@ -1947,10 +2183,13 @@ function login(){
       </div>`;
 
   }
+
 }
 
 
-/* ADMIN DATA */
+/* =========================
+   ADMIN DATA
+========================= */
 
 function loadData(){
 
@@ -1986,6 +2225,7 @@ function loadData(){
         </tr>`;
 
         return;
+
       }
 
 

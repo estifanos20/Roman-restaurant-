@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ROMAN Restaurant</title>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -17,7 +19,10 @@ body{
   font-family:Arial,sans-serif;
   background:#f7efe2;
   color:#3b2114;
+  overflow-x:hidden;
 }
+
+/* HEADER */
 
 header{
   position:sticky;
@@ -70,6 +75,8 @@ nav button:hover{
   transform:translateY(-2px);
 }
 
+/* HERO */
+
 .hero{
   min-height:500px;
   background:
@@ -85,6 +92,18 @@ nav button:hover{
 
 .hero-content{
   max-width:700px;
+  animation:heroIn 1s ease;
+}
+
+@keyframes heroIn{
+  from{
+    opacity:0;
+    transform:translateY(25px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
 .hero-content h1{
@@ -120,6 +139,8 @@ nav button:hover{
   background:white;
   transform:scale(1.05);
 }
+
+/* SECTIONS */
 
 section{
   padding:60px 5%;
@@ -463,6 +484,29 @@ label{
   color:#7b421f;
 }
 
+/* OPENING HOURS */
+
+.hours{
+  max-width:750px;
+  margin:0 auto 40px;
+  background:#5a301d;
+  color:white;
+  border-radius:18px;
+  padding:25px;
+  text-align:center;
+  box-shadow:0 6px 22px #0002;
+}
+
+.hours h3{
+  color:#f2c36b;
+  font-size:24px;
+  margin-bottom:12px;
+}
+
+.hours p{
+  margin:7px;
+}
+
 /* ADMIN */
 
 .admin-table{
@@ -509,6 +553,54 @@ footer a{
 
 .hidden{
   display:none;
+}
+
+/* FLOATING WHATSAPP */
+
+.whatsapp-float{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#25D366;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  font-size:29px;
+  box-shadow:0 5px 18px #0004;
+  z-index:9999;
+  transition:.2s;
+}
+
+.whatsapp-float:hover{
+  transform:scale(1.1);
+}
+
+/* BACK TO TOP */
+
+.top-btn{
+  position:fixed;
+  right:20px;
+  bottom:90px;
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:50%;
+  background:#5a301d;
+  color:#f2c36b;
+  font-size:20px;
+  cursor:pointer;
+  display:none;
+  z-index:9998;
+  box-shadow:0 4px 15px #0004;
+}
+
+.top-btn.show{
+  display:block;
 }
 
 /* MOBILE */
@@ -668,6 +760,20 @@ footer a{
     flex-wrap:wrap;
   }
 
+  .hours{
+    padding:20px 12px;
+  }
+
+  .whatsapp-float{
+    right:15px;
+    bottom:15px;
+  }
+
+  .top-btn{
+    right:15px;
+    bottom:82px;
+  }
+
 }
 
 @media(max-width:380px){
@@ -687,6 +793,7 @@ footer a{
   }
 
 }
+
 </style>
 </head>
 
@@ -700,11 +807,27 @@ footer a{
   </div>
 
   <nav>
-    <button onclick="location.href='#menu'">🍽️ Menu</button>
-    <button onclick="location.href='#reservation'">📅 Reservation</button>
-    <button onclick="location.href='#payment'">💳 Payment</button>
-    <button onclick="location.href='#cart'">🛒 Cart</button>
-    <button onclick="location.href='#admin'">🔐 Admin</button>
+
+    <button onclick="location.href='#menu'">
+      🍽️ Menu
+    </button>
+
+    <button onclick="location.href='#reservation'">
+      📅 Reservation
+    </button>
+
+    <button onclick="location.href='#payment'">
+      💳 Payment
+    </button>
+
+    <button onclick="location.href='#cart'">
+      🛒 Cart
+    </button>
+
+    <button onclick="location.href='#admin'">
+      🔐 Admin
+    </button>
+
   </nav>
 
 </header>
@@ -742,25 +865,26 @@ footer a{
 
     <h2>Our Menu</h2>
 
-    <p>የኢትዮጵያ ባህላዊ ምግቦች</p>
+    <p>
+      የኢትዮጵያ ባህላዊ ምግቦች
+    </p>
 
   </div>
 
-
-  <!-- SEARCH + CATEGORY -->
 
   <div class="menu-tools">
 
     <div class="search-box">
 
-      <span class="search-icon">🔎</span>
+      <span class="search-icon">
+        🔎
+      </span>
 
       <input
         id="menuSearch"
         type="text"
         placeholder="Search food... / ምግብ ይፈልጉ..."
-        oninput="filterMenu()"
-      >
+        oninput="filterMenu()">
 
     </div>
 
@@ -822,7 +946,9 @@ footer a{
 
       <div class="card-image">
 
-        <img src="Kitfo.jpg" alt="Kitfo">
+        <img
+          src="Kitfo.jpg"
+          alt="Kitfo">
 
         <span class="badge">
           ⭐ Popular
@@ -864,7 +990,9 @@ footer a{
 
       <div class="card-image">
 
-        <img src="Kurtsga.jpg" alt="Kurt Sega">
+        <img
+          src="Kurtsga.jpg"
+          alt="Kurt Sega">
 
         <span class="badge">
           🔥 Special
@@ -950,7 +1078,9 @@ footer a{
 
       <div class="card-image">
 
-        <img src="Tibs.jpg" alt="Tibs">
+        <img
+          src="Tibs.jpg"
+          alt="Tibs">
 
         <span class="badge">
           🔥 Popular
@@ -992,7 +1122,9 @@ footer a{
 
       <div class="card-image">
 
-        <img src="Shiro.jpg" alt="Shiro">
+        <img
+          src="Shiro.jpg"
+          alt="Shiro">
 
         <span class="badge">
           🌿 Favorite
@@ -1034,7 +1166,9 @@ footer a{
 
       <div class="card-image">
 
-        <img src="Frfr.jpg" alt="Firfir">
+        <img
+          src="Frfr.jpg"
+          alt="Firfir">
 
         <span class="badge">
           ⭐ Popular
@@ -1076,7 +1210,9 @@ footer a{
 
       <div class="card-image">
 
-        <img src="Kikil.jpg" alt="Kikil">
+        <img
+          src="Kikil.jpg"
+          alt="Kikil">
 
         <span class="badge">
           🇪🇹 Traditional
@@ -1118,7 +1254,9 @@ footer a{
 
       <div class="card-image">
 
-        <img src="Chukame.jpg" alt="Chukame">
+        <img
+          src="Chukame.jpg"
+          alt="Chukame">
 
         <span class="badge">
           ⭐ Special
@@ -1160,7 +1298,9 @@ footer a{
 
       <div class="card-image">
 
-        <img src="Chororsa.jpg" alt="Chororsa">
+        <img
+          src="Chororsa.jpg"
+          alt="Chororsa">
 
         <span class="badge">
           ⭐ Special
@@ -1202,7 +1342,9 @@ footer a{
 
       <div class="card-image">
 
-        <img src="Tihilo.jpg" alt="Tihilo">
+        <img
+          src="Tihilo.jpg"
+          alt="Tihilo">
 
         <span class="badge">
           🇪🇹 Traditional
@@ -1244,7 +1386,9 @@ footer a{
 
       <div class="card-image">
 
-        <img src="Beyaynet.jpg" alt="Beyaynet">
+        <img
+          src="Beyaynet.jpg"
+          alt="Beyaynet">
 
         <span class="badge">
           🌿 Favorite
@@ -1286,7 +1430,9 @@ footer a{
 
       <div class="card-image">
 
-        <img src="Coffee.jpg" alt="Coffee">
+        <img
+          src="Coffee.jpg"
+          alt="Coffee">
 
         <span class="badge">
           ☕ Ethiopian Coffee
@@ -1323,6 +1469,25 @@ footer a{
 </section>
 
 
+<!-- OPENING HOURS -->
+
+<section>
+
+  <div class="hours">
+
+    <h3>🕐 Opening Hours</h3>
+
+    <p>Monday – Sunday</p>
+
+    <p>8:00 AM – 10:00 PM</p>
+
+    <p>🇪🇹 Welcome to ROMAN Restaurant</p>
+
+  </div>
+
+</section>
+
+
 <!-- CART -->
 
 <section id="cart">
@@ -1331,7 +1496,9 @@ footer a{
 
     <h2>🛒 Your Cart</h2>
 
-    <p>ያዘዙትን ምግብ ይመልከቱ</p>
+    <p>
+      ያዘዙትን ምግብ ይመልከቱ
+    </p>
 
   </div>
 
@@ -1340,9 +1507,11 @@ footer a{
     <div id="cartList"></div>
 
     <div class="total">
+
       Total:
       <span id="total">0</span>
       ETB
+
     </div>
 
     <label>Name</label>
@@ -1362,7 +1531,9 @@ footer a{
     <button
       class="main-btn"
       onclick="order()">
+
       📱 Order via WhatsApp
+
     </button>
 
     <div id="orderMessage"></div>
@@ -1380,7 +1551,9 @@ footer a{
 
     <h2>📅 Table Reservation</h2>
 
-    <p>ጠረጴዛ ለመያዝ</p>
+    <p>
+      ጠረጴዛ ለመያዝ
+    </p>
 
   </div>
 
@@ -1432,7 +1605,9 @@ footer a{
     <button
       class="main-btn"
       onclick="reserve()">
+
       📅 Reserve Table
+
     </button>
 
     <div id="resMessage"></div>
@@ -1450,7 +1625,9 @@ footer a{
 
     <h2>💳 Payment</h2>
 
-    <p>የክፍያ መረጃ</p>
+    <p>
+      የክፍያ መረጃ
+    </p>
 
   </div>
 
@@ -1502,7 +1679,9 @@ footer a{
     <button
       class="main-btn"
       onclick="paid()">
+
       ✅ I Paid
+
     </button>
 
     <div id="payMessage"></div>
@@ -1520,7 +1699,9 @@ footer a{
 
     <h2>🔐 Admin</h2>
 
-    <p>ROMAN Restaurant Dashboard</p>
+    <p>
+      ROMAN Restaurant Dashboard
+    </p>
 
   </div>
 
@@ -1538,24 +1719,31 @@ footer a{
       <button
         class="main-btn"
         onclick="login()">
+
         Login
+
       </button>
 
       <div id="loginMessage"></div>
 
     </div>
 
+
     <div
       id="dashboard"
       class="hidden">
 
-      <h3>📊 Orders & Reservations</h3>
+      <h3>
+        📊 Orders & Reservations
+      </h3>
 
       <button
         class="main-btn"
         style="margin-top:15px;"
         onclick="loadData()">
+
         🔄 Refresh
+
       </button>
 
       <div class="dashboard">
@@ -1565,6 +1753,7 @@ footer a{
           <thead>
 
             <tr>
+
               <th>Date</th>
               <th>Type</th>
               <th>Name</th>
@@ -1574,6 +1763,7 @@ footer a{
               <th>Reservation Date</th>
               <th>Time</th>
               <th>Total</th>
+
             </tr>
 
           </thead>
@@ -1597,21 +1787,58 @@ footer a{
 
   <h2>ROMAN</h2>
 
-  <p>Authentic Ethiopian Restaurant 🇪🇹</p>
+  <p>
+    Authentic Ethiopian Restaurant 🇪🇹
+  </p>
 
   <br>
 
-  <p>📱 WhatsApp: 0908888831</p>
+  <p>
+    📱 WhatsApp: 0908888831
+  </p>
 
   <br>
 
   <a
     href="https://wa.me/251908888831"
     target="_blank">
+
     Chat with us on WhatsApp
+
   </a>
 
+  <br><br>
+
+  <small>
+    © 2026 ROMAN Restaurant
+  </small>
+
 </footer>
+
+
+<!-- FLOATING WHATSAPP -->
+
+<a
+  class="whatsapp-float"
+  href="https://wa.me/251908888831"
+  target="_blank"
+  aria-label="WhatsApp">
+
+  💬
+
+</a>
+
+
+<!-- BACK TO TOP -->
+
+<button
+  id="topBtn"
+  class="top-btn"
+  onclick="window.scrollTo({top:0,behavior:'smooth'})">
+
+  ↑
+
+</button>
 
 
 <script>
@@ -1625,9 +1852,7 @@ const WHATSAPP =
 let cart=[];
 
 
-/* =========================
-   MENU SEARCH + FILTER
-========================= */
+/* MENU SEARCH */
 
 function filterMenu(){
 
@@ -1681,26 +1906,16 @@ function filterMenu(){
 
   });
 
-
   const noResults =
     document.getElementById("noResults");
 
-  if(visible===0){
-
-    noResults.style.display="block";
-
-  }else{
-
-    noResults.style.display="none";
-
-  }
+  noResults.style.display =
+    visible===0 ? "block" : "none";
 
 }
 
 
-/* =========================
-   CART
-========================= */
+/* CART */
 
 function add(name,price){
 
@@ -1771,7 +1986,6 @@ function updateCart(){
   const totalElement =
     document.getElementById("total");
 
-
   if(cart.length===0){
 
     list.innerHTML =
@@ -1783,11 +1997,9 @@ function updateCart(){
 
   }
 
-
   let total=0;
 
   let html="";
-
 
   cart.forEach((item,index)=>{
 
@@ -1795,7 +2007,6 @@ function updateCart(){
       item.price * item.qty;
 
     total += itemTotal;
-
 
     html += `
 
@@ -1819,13 +2030,14 @@ function updateCart(){
 
         </div>
 
-
         <div class="qty-controls">
 
           <button
             class="qty-btn"
             onclick="decrease(${index})">
+
             −
+
           </button>
 
           <span class="qty-number">
@@ -1835,16 +2047,19 @@ function updateCart(){
           <button
             class="qty-btn"
             onclick="increase(${index})">
+
             +
+
           </button>
 
         </div>
 
-
         <button
           class="delete-btn"
           onclick="removeItem(${index})">
+
           🗑️
+
         </button>
 
       </div>
@@ -1852,7 +2067,6 @@ function updateCart(){
     `;
 
   });
-
 
   list.innerHTML=html;
 
@@ -1862,9 +2076,7 @@ function updateCart(){
 }
 
 
-/* =========================
-   ORDER
-========================= */
+/* ORDER */
 
 function order(){
 
@@ -1878,20 +2090,17 @@ function order(){
 
   }
 
-
   const name =
     document
       .getElementById("orderName")
       .value
       .trim();
 
-
   const phone =
     document
       .getElementById("orderPhone")
       .value
       .trim();
-
 
   if(!name || !phone){
 
@@ -1903,11 +2112,9 @@ function order(){
 
   }
 
-
   let total=0;
 
   let itemsText="";
-
 
   cart.forEach(item=>{
 
@@ -1920,7 +2127,6 @@ function order(){
       `${item.name} x${item.qty} = ${itemTotal.toLocaleString()} ETB\n`;
 
   });
-
 
   const message =
 `🍽️ ROMAN RESTAURANT ORDER
@@ -1935,7 +2141,6 @@ ${itemsText}
 ${total.toLocaleString()} ETB
 
 Thank you!`;
-
 
   fetch(API,{
 
@@ -1956,12 +2161,10 @@ Thank you!`;
 
   }).catch(()=>{});
 
-
   const url =
     `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
 
   window.open(url,"_blank");
-
 
   document
     .getElementById("orderMessage")
@@ -1973,9 +2176,7 @@ Thank you!`;
 }
 
 
-/* =========================
-   RESERVATION
-========================= */
+/* RESERVATION */
 
 function reserve(){
 
@@ -2006,7 +2207,6 @@ function reserve(){
       .getElementById("resTime")
       .value;
 
-
   if(!name || !phone || !date || !time){
 
     alert(
@@ -2016,7 +2216,6 @@ function reserve(){
     return;
 
   }
-
 
   const message =
 `📅 ROMAN RESTAURANT RESERVATION
@@ -2028,7 +2227,6 @@ function reserve(){
 ⏰ Time: ${time}
 
 Please confirm my reservation.`;
-
 
   fetch(API,{
 
@@ -2049,12 +2247,10 @@ Please confirm my reservation.`;
 
   }).catch(()=>{});
 
-
   const url =
     `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
 
   window.open(url,"_blank");
-
 
   document
     .getElementById("resMessage")
@@ -2066,9 +2262,7 @@ Please confirm my reservation.`;
 }
 
 
-/* =========================
-   PAYMENT
-========================= */
+/* PAYMENT */
 
 function paid(){
 
@@ -2090,7 +2284,6 @@ function paid(){
       .value
       .trim();
 
-
   if(!name || !phone || !amount){
 
     alert(
@@ -2101,7 +2294,6 @@ function paid(){
 
   }
 
-
   const message =
 `💳 ROMAN RESTAURANT PAYMENT
 
@@ -2111,7 +2303,6 @@ function paid(){
 
 Payment made via Telebirr/CBE.
 Please confirm my payment.`;
-
 
   fetch(API,{
 
@@ -2132,12 +2323,10 @@ Please confirm my payment.`;
 
   }).catch(()=>{});
 
-
   const url =
     `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
 
   window.open(url,"_blank");
-
 
   document
     .getElementById("payMessage")
@@ -2149,9 +2338,7 @@ Please confirm my payment.`;
 }
 
 
-/* =========================
-   ADMIN LOGIN
-========================= */
+/* ADMIN LOGIN */
 
 function login(){
 
@@ -2159,7 +2346,6 @@ function login(){
     document
       .getElementById("adminPassword")
       .value;
-
 
   if(password==="roman123"){
 
@@ -2187,9 +2373,7 @@ function login(){
 }
 
 
-/* =========================
-   ADMIN DATA
-========================= */
+/* ADMIN DATA */
 
 function loadData(){
 
@@ -2203,7 +2387,6 @@ function loadData(){
       </td>
     </tr>`;
 
-
   fetch(API)
 
     .then(response =>
@@ -2213,7 +2396,6 @@ function loadData(){
     .then(data=>{
 
       tbody.innerHTML="";
-
 
       if(data.length<=1){
 
@@ -2228,7 +2410,6 @@ function loadData(){
 
       }
 
-
       for(
         let i=1;
         i<data.length;
@@ -2239,7 +2420,6 @@ function loadData(){
 
         const tr =
           document.createElement("tr");
-
 
         for(
           let j=0;
@@ -2256,7 +2436,6 @@ function loadData(){
           tr.appendChild(td);
 
         }
-
 
         tbody.appendChild(tr);
 
@@ -2278,6 +2457,26 @@ function loadData(){
     });
 
 }
+
+
+/* BACK TO TOP */
+
+window.addEventListener("scroll",function(){
+
+  const topBtn =
+    document.getElementById("topBtn");
+
+  if(window.scrollY>400){
+
+    topBtn.classList.add("show");
+
+  }else{
+
+    topBtn.classList.remove("show");
+
+  }
+
+});
 
 
 /* START */
